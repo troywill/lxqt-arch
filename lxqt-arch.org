@@ -3,8 +3,8 @@
   | rel | Name               |    Built | org | Web                 | GitHub             | AUR                    |
   |-----+--------------------+----------+-----+---------------------+--------------------+------------------------|
   | 150 | libqtxdg           | 14-02-27 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]      | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           |
-  | 253 | liblxqt            | 14-02-24 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            |
-  |  37 | liblxqt-mount      | 14-02-24 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |
+  | 253 | liblxqt            | 14-02-27 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            |
+  |  37 | liblxqt-mount      | 14-02-27 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |
   | 107 | lxqt-globalkeys    | 14-02-24 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    |
   |  68 | lxqt-notificationd | 14-02-24 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]] | [[https://github.com/lxde/lxqt-notificationd][lxqt-notificationd]] | [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] |
   |  20 | libsysstat         | 14-02-26 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libsysstat][#libsysstat]]         | [[https://github.com/lxde/libsysstat][lxde/libsysstat]]    | [[https://aur.archlinux.org/packages/libsysstat-git/][libsysstat-git]]         |
@@ -125,13 +125,13 @@
         _pkgname=liblxqt-mount
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.0
+        pkgver=0.5
         pkgrel=1
         pkgdesc="LXQt library used to manage removable devices."
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        depends=('qt4>=4.6' 'liblxqt>=0.5.r254')
+        depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
         makedepends=('git' 'cmake')
         provides=($_pkgname)
         conflicts=($_pkgname)
@@ -141,7 +141,7 @@
         
         pkgver() {
                 cd "$srcdir/$_gitname"
-                echo "$(git rev-list --count HEAD).$(git describe --always)"
+                printf "%s.r%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
         }
         
         build() {
@@ -156,6 +156,48 @@
                 cd "$srcdir/$_gitname"
                 cd build
                 make DESTDIR="$pkgdir" install
+        }
+      #+END_SRC
+   4. [ ] build and install [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
+      #+BEGIN_SRC sh :tangle lxqt-globalkeys/PKGBUILD :padline no
+        # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # Maintainer: Troy Will <troydwill@gmail.com>
+        
+        _pkgname=lxqt-globalkeys
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.5
+        pkgrel=1
+        pkgdesc="Package description here."
+        arch=('i686' 'x86_64')
+        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
+        license=('GPL2')
+        depends=('qt4>=4.6')
+        makedepends=('git' 'cmake>=2.6' 'libx11')
+        provides=("$_pkgname")
+        conflicts=("$_pkgname")
+        source=("git://github.com/lxde/$_pkgname.git")
+        # Because the source is not static, skip Git checksum:        
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+        }
+        
+        build() {
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
+        }
+        
+        package() {
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
         }
       #+END_SRC
 * Custom Repository

@@ -2,7 +2,8 @@
 use warnings;
 use strict;
 
-my @packages = qw( libqtxdg liblxqt);
+my @packages = qw( libqtxdg liblxqt liblxqt-mount
+lxqt-globalkeys );
 
 foreach my $package (@packages) {
     chdir ($package) or die "Unable to chdir: $!";
@@ -14,9 +15,3 @@ foreach my $package (@packages) {
 }
 
 __END__
-cd libqtxdg
-rm -rf libqtxdg*
-rm -rf pkg
-rm -rf src
-
-cd
