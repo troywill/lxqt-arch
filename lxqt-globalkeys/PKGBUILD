@@ -11,7 +11,7 @@ arch=('i686' 'x86_64')
 url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
 license=('GPL2')
 depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
-makedepends=('git' 'cmake>=2.6' 'libx11')
+makedepends=('git' 'cmake>=2.6' 'libx11' 'liblxqt>=0.5.r253')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
 source=("git://github.com/lxde/$_pkgname.git")
