@@ -2,7 +2,7 @@
   #+NAME: base-libraries
   | rel | Name               |    Built | org | Web                 | GitHub             | AUR                    |
   |-----+--------------------+----------+-----+---------------------+--------------------+------------------------|
-  | 148 | libqtxdg           | 14-02-24 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           |
+  | 150 | libqtxdg           | 14-02-27 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]      | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           |
   | 253 | liblxqt            | 14-02-24 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            |
   |  37 | liblxqt-mount      | 14-02-24 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |
   | 107 | lxqt-globalkeys    | 14-02-24 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    |
@@ -10,7 +10,6 @@
   |  20 | libsysstat         | 14-02-26 |     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libsysstat][#libsysstat]]         | [[https://github.com/lxde/libsysstat][lxde/libsysstat]]    | [[https://aur.archlinux.org/packages/libsysstat-git/][libsysstat-git]]         |
   |     | menu-cache         |          |     |                     |                    |                        |
   |     | libfm              |          |     |                     |                    |                        |
-
   #+NAME: major-components
   |   r | Name                 |    Built | Web           | GitHub          | AUR            |
   |-----+----------------------+----------+---------------+-----------------+----------------|
@@ -32,18 +31,13 @@
   |     | compton-conf         |          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]] | [[https://github.com/lxde/compton-conf][compton-conf]]    |                |
   |     | lxqt-about           |          |               |                 |                |
   |     | lxqt-lightdm-greeter |          |               |                 |                |
-  
 * Step by step package build
 1. [-]  Build the base libraries
    1. [ ] build and install [[https://github.com/lxde/libqtxdg][libqtxdg]] 
-      - Latest commit Feb 07, 2014 
       - Library providing freedesktop.org specs implementations for Qt.
-      #+BEGIN_SRC sh
-      wget https://aur.archlinux.org/packages/li/libqtxdg-git/libqtxdg-git.tar.gz
-      #+END_SRC
-      #+BEGIN_SRC sh :tangle libqtxdg-git/PKGBUILD
-        # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Maintainer: Troy Will <troydwill@gmail.com>
+      #+BEGIN_SRC sh :tangle libqtxdg/PKGBUILD
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # Current Maintainer: Troy Will <troydwill@gmail.com>
           
         _pkgname=libqtxdg
         # pkgname=$_pkgname-git
@@ -54,7 +48,7 @@
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
         license=('GPL2')
-        depends=('qt4')
+        depends=('qt4>=4.6')
         makedepends=('git' 'cmake')
         provides=("$_pkgname")
         conflicts=("$_pkgname")
@@ -84,22 +78,20 @@
       #+END_SRC
    2. [ ] build and install [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
-      #+BEGIN_SRC sh
-      wget https://aur.archlinux.org/packages/li/liblxqt-git/liblxqt-git.tar.gz      
-      #+END_SRC
-      #+BEGIN_SRC sh :tangle liblxqt-git/PKGBUILD :padline no
-        # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Maintainer: Troy Will <troydwill@gmail.com>
+      #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # Current Maintainer: Troy Will <troydwill@gmail.com>
           
         _pkgname=liblxqt
-        pkgname=$_pkgname-git
-        pkgver=0.0.0
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.5
         pkgrel=1
         pkgdesc="Common base library for LXQt components."
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        depends=('qt4' 'libqtxdg-git')
+        depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
         makedepends=('git' 'cmake')
         provides=($_pkgname)
         conflicts=($_pkgname)
@@ -109,7 +101,7 @@
           
         pkgver() {
             cd "$srcdir/$_gitname"
-            printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+            printf "%s.r%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
         }
           
         build() {
@@ -127,21 +119,19 @@
         }
       #+END_SRC
    3. [ ] build and install [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/li/liblxqt-mount-git/liblxqt-mount-git.tar.gz
-      #+END_SRC
-      #+BEGIN_SRC sh :tangle liblxqt-mount-git/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle liblxqt-mount/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
         _pkgname=liblxqt-mount
-        pkgname=$_pkgname-git
-        pkgver=0.0.0
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.0
         pkgrel=1
         pkgdesc="LXQt library used to manage removable devices."
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        depends=('qt4' 'liblxqt-git')
+        depends=('qt4>=4.6' 'liblxqt>=0.5.r254')
         makedepends=('git' 'cmake')
         provides=($_pkgname)
         conflicts=($_pkgname)
@@ -167,377 +157,7 @@
                 cd build
                 make DESTDIR="$pkgdir" install
         }
-        
       #+END_SRC
-   4. [ ] build and install [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-globalkeys-git/lxqt-globalkeys-git.tar.gz      
-      #+END_SRC
-      #+BEGIN_SRC sh :tangle lxqt-globalkeys-git/PKGBUILD :padline no
-        # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Maintainer: Troy Will <troydwill@gmail.com>
-        
-        _pkgname=lxqt-globalkeys
-        pkgname=$_pkgname-git
-        pkgver=0.0.0
-        pkgrel=1
-        pkgdesc="Package description here."
-        arch=('i686' 'x86_64')
-        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
-        license=('GPL2')
-        depends=('qt4')
-        makedepends=('git' 'cmake')
-        provides=("$_pkgname")
-        conflicts=("$_pkgname")
-        source=("git://github.com/lxde/$_pkgname.git")
-        # Because the source is not static, skip Git checksum:        
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
-        
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
-      #+END_SRC
-   5. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] (see [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]])
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-notificationd-git/lxqt-notificationd-git.tar.gz
-      #+END_SRC
-      #+BEGIN_SRC sh :tangle lxqt-notificationd-git/PKGBUILD :padline no
-        # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Maintainer: Troy Will <troydwill@gmail.com>
-        
-        _pkgname=lxqt-notificationd
-        pkgname=$_pkgname-git
-        pkgver=0.0.0
-        pkgrel=1
-        pkgdesc="Package description here."
-        arch=('i686' 'x86_64')
-        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
-        license=('GPL2')
-        depends=('qt4')
-        makedepends=('git' 'cmake')
-        provides=("$_pkgname")
-        conflicts=("$_pkgname")
-        source=("git://github.com/lxde/$_pkgname.git")
-        # Because the source is not static, skip Git checksum:        
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
-        
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
-      #+END_SRC
-   6. [X] build and install [[https://aur.archlinux.org/packages/libsysstat-git/][libsysstat-git]] (see [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libsysstat][#libsysstat]])
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/li/libsysstat-git/libsysstat-git.tar.gz
-      #+END_SRC
-      #+BEGIN_SRC sh :tangle libsysstat-git/PKGBUILD :padline no
-        # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Maintainer: Troy Will <troydwill@gmail.com>
-        
-        _pkgname=libsysstat
-        pkgname=$_pkgname-git
-        pkgver=0.0.0
-        pkgrel=1
-        pkgdesc="Package description here."
-        arch=('i686' 'x86_64')
-        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
-        license=('GPL2')
-        depends=('qt4')
-        makedepends=('git' 'cmake')
-        provides=("$_pkgname")
-        conflicts=("$_pkgname")
-        source=("git://github.com/lxde/$_pkgname.git")
-        # Because the source is not static, skip Git checksum:        
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
-        
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
-      #+END_SRC
-      
-   7. [ ] install menu-cache
-      #+BEGIN_SRC sh
-        pacman --sync menu-cache
-      #+END_SRC
-   8. [ ] build and install [[https://aur.archlinux.org/packages/libfm-git/][libfm-git]]
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/li/libfm-git/libfm-git.tar.gz
-      #+END_SRC
-      - checking for XML::Parser... configure: error: XML::Parser perl module is required for intltool
-      - cpanm --sudo XML::Parser
-2. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Build_major_components][Build major components]]
-   1. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-panel-git/][lxqt-panel-git]] (see [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]])
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-panel-git/lxqt-panel-git.tar.gz
-      #+END_SRC
-      #+BEGIN_SRC sh :tangle lxqt-panel-git/PKGBUILD :padline no
-        # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Maintainer: Troy Will <troydwill@gmail.com>
-             
-        _pkgname=lxqt-panel
-        pkgname=$_pkgname-git
-        pkgver=0.0.0
-        pkgrel=1
-        pkgdesc="Package description here."
-        arch=('i686' 'x86_64')
-        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
-        license=('GPL2')
-        depends=('qt4>=4.6' 'cmake>=2.6' 'libqtxdg' 'liblxqt' 'lxqt-globalkeys' 'liblxqt-mount' 'libx11' 'libsysstat-git')
-        makedepends=('git' 'cmake')
-        provides=("$_pkgname")
-        conflicts=("$_pkgname")
-        source=("git://github.com/lxde/$_pkgname.git")
-        # Because the source is not static, skip Git checksum:        
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
-        
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
-      #+END_SRC
-   2. [ ] build and install [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]] (See [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]])
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/pc/pcmanfm-qt-git/pcmanfm-qt-git.tar.gz
-       #+END_SRC
-   3. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-session-git/][lxqt-session-git]]
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-session-git/lxqt-session-git.tar.gz
-      #+END_SRC
-   4. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-runner-git/][lxqt-runner-git]]
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-runner-git/lxqt-runner-git.tar.gz
-      #+END_SRC
-   5. [ ] TODO lxqt-qtplugin-git
-   6. [ ] TODO lxqt-appswitcher   
-   7. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-policykit-git/][lxqt-policykit-git]]
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-policykit-git/lxqt-policykit-git.tar.gz
-      #+END_SRC
-   8. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-openssh-askpass-git/][lxqt-openssh-askpass-git]]
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-openssh-askpass-git/lxqt-openssh-askpass-git.tar.gz
-      #+END_SRC
-   9. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-power-git/][lxqt-power-git]]
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-power-git/lxqt-power-git.tar.gz
-      #+END_SRC
-   10. [ ] TODO lxqt-powermanagement
-   11. [ ] build and install [[https://aur.archlinux.org/packages/lximage-qt-git/][lximage-qt-git]]
-       #+BEGIN_SRC sh
-         wget https://aur.archlinux.org/packages/lx/lximage-qt-git/lximage-qt-git.tar.gz
-       #+END_SRC
-   12. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-config-git/][lxqt-config-git]]
-       #+BEGIN_SRC sh
-         wget https://aur.archlinux.org/packages/lx/lxqt-config-git/lxqt-config-git.tar.gz
-       #+END_SRC
-   13. [ ] build and install [[https://aur.archlinux.org/packages/lxinput-qt-git/][lxinput-qt-git]]
-       #+BEGIN_SRC sh
-         wget https://aur.archlinux.org/packages/lx/lxinput-qt-git/lxinput-qt-git.tar.gz
-       #+END_SRC
-   14. [ ] compton-conf
-       #+BEGIN_SRC sh :tangle compton-conf-git/PKGBUILD
-         # Maintainer: Troy Will <troydwill@gmail.com>
-         
-         _pkgname=compton-conf
-         pkgname=$_pkgname-git
-         pkgver=0.0.0
-         pkgrel=1
-         pkgdesc="Package description here."
-         arch=('i686' 'x86_64')
-         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
-         license=('GPL2')
-         depends=('qt4' 'libconfig')
-         makedepends=('git' 'cmake')
-         provides=("$_pkgname")
-         conflicts=("$_pkgname")
-         source=("git://github.com/lxde/$_pkgname.git")
-         # Because the source is not static, skip Git checksum:        
-         sha256sums=('SKIP')
-         _gitname=$_pkgname
-         
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-         }
-         
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-             make
-         }
-         
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
-       #+END_SRC
-   15. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-about-git/][lxqt-about-git]]
-       #+BEGIN_SRC sh
-         wget https://aur.archlinux.org/packages/lx/lxqt-about-git/lxqt-about-git.tar.gz
-       #+END_SRC
-3. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Install_data_files][Install data files]]
-   1. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-common-git/][lxqt-common-git]]
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/lx/lxqt-common-git/lxqt-common-git.tar.gz
-      #+END_SRC
-   2. [ ] build and install 
-      #+BEGIN_SRC sh
-        pacman --sync lxmenu-data
-      #+END_SRC
-* https://wiki.archlinux.org/index.php/Lxqt
-* https://aur.archlinux.org/packages/?O=0&K=lxqt
-* [[http://wiki.lxde.org/en/LXDE-Qt][LXDE-Qt]]
-  http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source
-* Package Building Documentation
-** [[https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines][VCS_PKGBUILD_Guidelines]]
-   #+BEGIN_SRC sh
-     # Maintainer: Dave Reisner <d@falconindy.com> 
-     # Contributor: William Giokas (KaiSforza) <1007380@gmail.com>
-     
-     pkgname=expac-git
-     pkgver=0.0.0
-     pkgrel=1
-     pkgdesc="Pacman database extraction utility"
-     arch=('i686' 'x86_64')
-     url="https://github.com/falconindy/expac"
-     license=('MIT')
-     depends=('pacman')
-     makedepends=('git')
-     conflicts=('expac')
-     provides=('expac')
-     # The git repo is detected by the 'git:' or 'git+' beginning. The branch
-     # '$pkgname' is then checked out upon cloning, expediating versioning:
-     #source=('git+https://github.com/falconindy/expac.git'
-     source=("$pkgname"::'git://github.com/falconindy/expac.git'
-             'expac_icon.png')
-     # Because the sources are not static, skip Git checksum:
-     md5sums=('SKIP'
-              '020c36e38466b68cbc7b3f93e2044b49')
-     
-     pkgver() {
-       cd "$srcdir/$pkgname"
-       # Use the tag of the last commit
-       git describe --long | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
-     }
-     
-     build() {
-       cd "$srcdir/$pkgname"
-       make
-     }
-     
-     package() {
-       cd "$srcdir/$pkgname"
-       make PREFIX=/usr DESTDIR="$pkgdir" install
-       install -Dm644 "$srcdir/expac_icon.png" "$pkgdir/usr/share/pixmaps/expac.png"
-     }   
-   #+END_SRC
-** PKGBUILD Template
-   # :tangle XXXX/PKGBUILD :padline no
-   #+BEGIN_SRC sh
-     # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-     # Maintainer: Troy Will <troydwill@gmail.com>
-     
-     _pkgname=PACKAGE_NAME
-     pkgname=$_pkgname-git
-     pkgver=0.0.0
-     pkgrel=1
-     pkgdesc="Package description here."
-     arch=('i686' 'x86_64')
-     url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
-     license=('GPL2')
-     depends=('qt4')
-     makedepends=('git' 'cmake')
-     provides=("$_pkgname")
-     conflicts=("$_pkgname")
-     source=("git://github.com/lxde/$_pkgname.git")
-     # Because the source is not static, skip Git checksum:        
-     sha256sums=('SKIP')
-     _gitname=$_pkgname
-     
-     pkgver() {
-         cd "$srcdir/$_gitname"
-         printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-     }
-     
-     build() {
-         cd "$srcdir/$_gitname"
-         mkdir -p build
-         cd build
-         cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-         make
-     }
-     
-     package() {
-         cd "$srcdir/$_gitname"
-         cd build
-         make DESTDIR="$pkgdir" install
-     }
-   #+END_SRC
 * Custom Repository
   #+BEGIN_SRC conf
     #
@@ -550,53 +170,3 @@
     Server = http://192.168.1.3/shiloh-lxqt
     
   #+END_SRC
-* compton-git
-  #+BEGIN_SRC sh
-    
-  #+END_SRC
-  #+BEGIN_SRC sh :tangle compton-git/PKGBUILD :padline no
-    # Maintainer: OK100 <ok100 at lavabit dot com>
-    # Previous Maintainer: Valère Monseur <valere dot monseur at ymail dot com>
-    
-    pkgname=compton-git
-    _gitname=compton
-    pkgver=0
-    pkgrel=1
-    pkgdesc="X Compositor (a fork of xcompmgr-dana)"
-    arch=(i686 x86_64)
-    url="https://github.com/chjj/compton"
-    license=('MIT')
-    depends=('libgl' 'libdbus' 'libxcomposite' 'libxdamage' 'libxrandr' 'pcre' 'libconfig' 'libxinerama')
-    optdepends=('xorg-xprop: for compton-trans'
-                'xorg-xwininfo: for compton-trans')
-    makedepends=('git' 'asciidoc')
-    source=("git://github.com/chjj/compton.git")
-    md5sums=("SKIP")
-    
-    pkgver() {
-        cd "${srcdir}/${_gitname}"
-        # Use the tag of the last commit
-        git describe --long | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
-    }
-    
-    build() {
-      cd "$srcdir/$_gitname"
-      make PREFIX=/usr
-      make docs
-    }
-    
-    package() {
-      cd "$srcdir/$_gitname"
-    
-      make PREFIX="$pkgdir/usr" install
-    
-      # install license
-      install -D -m644 "LICENSE" "$pkgdir/usr/share/licenses/$_gitname/LICENSE"
-    
-      # example conf
-      install -D -m644 "compton.sample.conf" "$pkgdir/etc/xdg/compton.conf.example"
-    }
-    
-  #+END_SRC
-  
-  
