@@ -4,13 +4,13 @@
 _pkgname=lxqt-globalkeys
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
-pkgver=0.5
+pkgver=0.5.r107.2126d96
 pkgrel=1
 pkgdesc="Package description here."
 arch=('i686' 'x86_64')
 url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
 license=('GPL2')
-depends=('qt4>=4.6')
+depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
 makedepends=('git' 'cmake>=2.6' 'libx11')
 provides=("$_pkgname")
 conflicts=("$_pkgname")

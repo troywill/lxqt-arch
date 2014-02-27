@@ -2,7 +2,9 @@
 use warnings;
 use strict;
 
-my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys);
+my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys
+                   lxqt-notificationd libsysstat
+                );
 
 foreach my $package (@packages) {
     chdir ($package) or die "Unable to chdir: $!";
