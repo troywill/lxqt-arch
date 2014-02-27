@@ -18,8 +18,8 @@ sha256sums=('SKIP')
 _gitname=$_pkgname
 
 pkgver() {
-        cd "$srcdir/$_gitname"
-        printf "%s.r%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    cd "$srcdir/$_gitname"
+    printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
 }
 
 build() {

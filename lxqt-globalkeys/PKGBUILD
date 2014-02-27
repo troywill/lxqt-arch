@@ -4,8 +4,8 @@
 _pkgname=lxqt-globalkeys
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
-pkgver=0.5.r107.2126d96
-pkgrel=1
+pkgver=0.5
+pkgrel=2
 pkgdesc="Package description here."
 arch=('i686' 'x86_64')
 url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
@@ -21,7 +21,8 @@ _gitname=$_pkgname
 
 pkgver() {
     cd "$srcdir/$_gitname"
-    printf "%s.r%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+
 }
 
 build() {
