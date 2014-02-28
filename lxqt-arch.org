@@ -54,6 +54,7 @@
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
         license=('GPL2')
+        groups=('lxqt')
         depends=('qt4>=4.6')
         makedepends=('git' 'cmake>=2.6')
         provides=("$_pkgname")
@@ -97,6 +98,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
+        groups=('lxqt')
         depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
@@ -137,6 +139,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
+        groups=('lxqt')
         depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
@@ -178,6 +181,7 @@
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
         license=('GPL2')
+        groups=('lxqt')
         depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
         makedepends=('git' 'cmake>=2.6' 'libx11' 'liblxqt>=0.5.r253')
         provides=("$_pkgname")
@@ -221,6 +225,7 @@
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
         license=('GPL2')
+        groups=('lxqt')
         depends=('qt4>=4.6')
         makedepends=('git' 'cmake>=2.6')
         provides=("$_pkgname")
@@ -263,6 +268,7 @@
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
         license=('GPL2')
+        groups=('lxqt')
         depends=('qt4>4.6')
         makedepends=('git' 'cmake>=2.6')
         provides=("$_pkgname")
@@ -306,6 +312,7 @@
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
         license=('GPL2')
+        groups=('lxqt')
         depends=('qt4>=4.6' 'libqtxdg>=0.5.r150' 'liblxqt>=0.5.r253' 'lxqt-globalkeys>=0.5.r107' 'liblxqt-mount>=0.5.r37' 'libx11' 'libsysstat>=0.5.r20')
         makedepends=('git' 'cmake>=2.6')
         provides=("$_pkgname")
@@ -352,6 +359,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
+        groups=('lxqt')
         depends=('liblxqt>=0.5.r253')
         makedepends=('git' 'cmake')
         provides=($_pkgname)
@@ -393,6 +401,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
+        groups=('lxqt')
         makedepends=('git' 'cmake')
         provides=($_pkgname)
         conflicts=($_pkgname)
@@ -424,7 +433,6 @@
       #+BEGIN_SRC sh
         pacman --sync lxmenu-data
       #+END_SRC
-
 * Custom Repository
   #+BEGIN_SRC conf
     #
@@ -437,3 +445,5 @@
     Server = http://192.168.1.3/shiloh-lxqt
     
   #+END_SRC
+* [[https://wiki.archlinux.org/index.php/pacman][Pacman]] package groups
+  

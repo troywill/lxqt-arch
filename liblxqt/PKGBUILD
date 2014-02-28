@@ -10,6 +10,7 @@ pkgdesc="Common base library for LXQt components."
 arch=('i686' 'x86_64')
 url="http://www.lxde.org"
 license=('GPL2')
+groups=('lxqt')
 depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
 makedepends=('git' 'cmake>=2.6')
 provides=($_pkgname)

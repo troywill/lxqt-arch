@@ -9,6 +9,7 @@ pkgdesc="LXQt library used to manage removable devices."
 arch=('i686' 'x86_64')
 url="http://www.lxde.org"
 license=('GPL2')
+groups=('lxqt')
 depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
 makedepends=('git' 'cmake>=2.6')
 provides=($_pkgname)

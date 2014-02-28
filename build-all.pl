@@ -9,7 +9,7 @@ my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys lxqt-notificat
                    lxqt-common
                 );
 
-copy "log/build.txt", "log/build.txt.old"
+copy "log/build.txt", "log/build.txt.old";
 
 open(my $logfile, ">", "log/build.txt") 
       or die "cannot open > log/build.txt: $!";

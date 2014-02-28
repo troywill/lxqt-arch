@@ -10,6 +10,7 @@ pkgdesc="LXQt session"
 arch=('i686' 'x86_64')
 url="http://www.lxde.org"
 license=('GPL2')
+groups=('lxqt')
 depends=('liblxqt>=0.5.r253')
 makedepends=('git' 'cmake')
 provides=($_pkgname)
