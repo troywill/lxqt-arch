@@ -43,7 +43,7 @@
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
         pkgver=0.5
-        pkgrel=1
+        pkgrel=2
         pkgdesc="Library providing freedesktop.org specs implementations for Qt."
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
