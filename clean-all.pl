@@ -3,7 +3,7 @@ use warnings;
 use strict;
 
 my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys lxqt-notificationd libsysstat
-                   lxqt-panel pcmanfm-qt lxqt-session lxqt-runner
+                   lxqt-panel pcmanfm-qt lxqt-session lxqt-runner lxqt-qtplugin
                    lxqt-common
                 );
 
