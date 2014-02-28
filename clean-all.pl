@@ -17,3 +17,4 @@ foreach my $package (@packages) {
 }
 
 __END__
+pcmanfm-qt

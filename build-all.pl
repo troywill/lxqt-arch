@@ -5,7 +5,7 @@ use File::Copy qw(copy move);
 
 
 my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys lxqt-notificationd libsysstat
-                   lxqt-panel lxqt-session
+                   lxqt-panel pcmanfm-qt lxqt-session
                    lxqt-common
                 );
 
@@ -25,9 +25,9 @@ foreach my $package (@packages) {
     chomp(my $package_built = `find *.xz`);
     copy $package_built, "../packages/";
     print $logfile "$package_built\n";
-    
     chdir ("..") or die "Unable to chdir ..: $!";
 }
 
 __END__
 
+pcmanfm-qt
