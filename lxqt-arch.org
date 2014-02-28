@@ -1,36 +1,36 @@
 * LXQT Package Tables
   #+NAME: base-libraries
-  | rel | Name               | Updated | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]       | GitHub             | AUR                    |
-  |-----+--------------------+---------+---------------------+--------------------+------------------------|
-  | 150 | libqtxdg           |         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]      | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           |
-  | 253 | liblxqt            |         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            |
-  |  37 | liblxqt-mount      |         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |
-  | 107 | lxqt-globalkeys    |         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    |
-  |  68 | lxqt-notificationd |         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]] | [[https://github.com/lxde/lxqt-notificationd][lxqt-notificationd]] | [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] |
-  |  20 | libsysstat         |         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libsysstat][#libsysstat]]         | [[https://github.com/lxde/libsysstat][lxde/libsysstat]]    | [[https://aur.archlinux.org/packages/libsysstat-git/][libsysstat-git]]         |
-  |     | menu-cache         |         |                     |                    |                        |
-  |     | libfm              |         |                     |                    |                        |
+  | rel | Name               | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]       | [[https://github.com/lxde][Git Repo]]                | AUR                    |
+  |-----+--------------------+---------------------+-------------------------+------------------------|
+  | 150 | libqtxdg           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           |
+  | 253 | liblxqt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][lxde/liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            |
+  |  37 | liblxqt-mount      | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][lxde/liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |
+  | 107 | lxqt-globalkeys    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxde/lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    |
+  |  68 | lxqt-notificationd | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]] | [[https://github.com/lxde/lxqt-notificationd][lxde/lxqt-notificationd]] | [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] |
+  |  20 | libsysstat         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libsysstat][#libsysstat]]         | [[https://github.com/lxde/libsysstat][lxde/libsysstat]]         | [[https://aur.archlinux.org/packages/libsysstat-git/][libsysstat-git]]         |
+  |     | menu-cache         |                     |                         |                        |
+  |     | libfm              |                     |                         |                        |
   #+NAME: major-components
-  | rel | Name                 | Updated | Web           | GitHub          | AUR            |
-  |-----+----------------------+---------+---------------+-----------------+----------------|
-  | 800 | [[file:lxqt-panel-git/PKGBUILD][lxqt-panel]]           |         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]]   | [[https://github.com/lxde/lxqt-panel][lxde/lxqt-panel]] | [[https://aur.archlinux.org/packages/lxqt-panel-git][lxqt-panel-git]] |
-  |     | pcmanfm-qt           |         |               |                 |                |
-  | 198 | lxqt-session         |         |               |                 |                |
-  |     | lxqt-runner          |         |               |                 |                |
-  |     | lxqt-qtplugin        |         |               |                 |                |
-  |     | lxqt-appswitcher     |         |               |                 |                |
-  |     | lxqt-policykit       |         |               |                 |                |
-  |     | lxqt-openssh-askpass |         |               |                 |                |
-  |     | lxqt-power           |         |               |                 |                |
-  |     | lxqt-powermanagement |         |               |                 |                |
-  |     | lximage-qt           |         |               |                 |                |
-  |     | lxqt-config          |         |               |                 |                |
-  |     | lxinput-qt           |         |               |                 |                |
-  |     | lxqt-config-randr    |         |               |                 |                |
-  |     | obconf-qt            |         |               |                 |                |
-  |     | compton-conf         |         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]] | [[https://github.com/lxde/compton-conf][compton-conf]]    |                |
-  |     | lxqt-about           |         |               |                 |                |
-  |     | lxqt-lightdm-greeter |         |               |                 |                |
+  | rel | Name                 | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]] | GitHub          | AUR            |
+  |-----+----------------------+---------------+-----------------+----------------|
+  | 800 | lxqt-panel           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]]   | [[https://github.com/lxde/lxqt-panel][lxde/lxqt-panel]] | [[https://aur.archlinux.org/packages/lxqt-panel-git][lxqt-panel-git]] |
+  |     | pcmanfm-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]]   | [[https://github.com/lxde/pcmanfm-qt][lxde/pcmanfm-qt]] | [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]] |
+  | 198 | lxqt-session         |               |                 |                |
+  |     | lxqt-runner          |               |                 |                |
+  |     | lxqt-qtplugin        |               |                 |                |
+  |     | lxqt-appswitcher     |               |                 |                |
+  |     | lxqt-policykit       |               |                 |                |
+  |     | lxqt-openssh-askpass |               |                 |                |
+  |     | lxqt-power           |               |                 |                |
+  |     | lxqt-powermanagement |               |                 |                |
+  |     | lximage-qt           |               |                 |                |
+  |     | lxqt-config          |               |                 |                |
+  |     | lxinput-qt           |               |                 |                |
+  |     | lxqt-config-randr    |               |                 |                |
+  |     | obconf-qt            |               |                 |                |
+  |     | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]] | [[https://github.com/lxde/compton-conf][compton-conf]]    |                |
+  |     | lxqt-about           |               |                 |                |
+  |     | lxqt-lightdm-greeter |               |                 |                |
   #+NAME: data-files
   | rel | Name        | Built | Web | GitHub | AUR |
   |-----+-------------+-------+-----+--------+-----|
@@ -39,7 +39,7 @@
   
 * Step by step package build
 1. [ ]  Build the base libraries
-   1. [ ] build and install [[https://github.com/lxde/libqtxdg][libqtxdg]] 
+   1. [ ] build [[https://github.com/lxde/libqtxdg][libqtxdg]] 
       - Library providing freedesktop.org specs implementations for Qt.
       #+BEGIN_SRC sh :tangle libqtxdg/PKGBUILD
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
@@ -83,7 +83,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   2. [ ] build and install [[https://github.com/lxde/liblxqt][liblxqt]] 
+   2. [ ] build [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
       #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
@@ -126,7 +126,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   3. [ ] build and install [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
+   3. [ ] build [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
       #+BEGIN_SRC sh :tangle liblxqt-mount/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
@@ -167,7 +167,7 @@
                 make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   4. [ ] build and install [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
+   4. [ ] build [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
       #+BEGIN_SRC sh :tangle lxqt-globalkeys/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Maintainer: Troy Will <troydwill@gmail.com>
@@ -211,7 +211,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   5. [ ] build and install lxqt-notificationd
+   5. [ ] build lxqt-notificationd
       #+BEGIN_SRC sh :tangle lxqt-notificationd/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
@@ -254,7 +254,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   6. [ ] build and install libsysstat
+   6. [ ] build libsysstat
       #+BEGIN_SRC sh :tangle libsysstat/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
@@ -298,7 +298,7 @@
         }
       #+END_SRC
 2. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Build_major_components][Build major components]]
-   1. [ ] build and install lxqt-panel
+   1. [ ] build lxqt-panel
       #+BEGIN_SRC sh :tangle lxqt-panel/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
@@ -341,11 +341,50 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   2. [ ] build and install [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]] (See [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]])
-      #+BEGIN_SRC sh
-        wget https://aur.archlinux.org/packages/pc/pcmanfm-qt-git/pcmanfm-qt-git.tar.gz
-       #+END_SRC
-   3. [ ] build and install lxqt-session
+   2. [ ] build pcmanfm-qt
+      #+BEGIN_SRC sh :tangle pcmanfm-qt/PKGBUILD :padline no
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # Current Maintainer: Troy Will <troydwill@gmail.com>
+        
+        _pkgname=pcmanfm-qt
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.1
+        pkgrel=1
+        pkgdesc="The LXQt file manager, Qt port of PCManFM"
+        arch=('i686' 'x86_64')
+        url="http://www.lxde.org"
+        license=('GPL2')
+        groups=('lxqt')
+        depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
+        makedepends=('git' 'cmake>=2.6')
+        provides=($_pkgname)
+        conflicts=($_pkgname)
+        source=("git://github.com/lxde/$_pkgname.git")
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+                cd "$srcdir/$_gitname"
+                printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+        }
+        
+        build() {
+                cd "$srcdir/$_gitname"
+                mkdir -p build
+                cd build
+                cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+                make
+        }
+        
+        package() {
+                cd "$srcdir/$_gitname"
+                cd build
+                make DESTDIR="$pkgdir" install
+        }
+        
+      #+END_SRC
+   3. [ ] build lxqt-session
       #+BEGIN_SRC sh :tangle lxqt-session/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # wget https://aur.archlinux.org/packages/lx/lxqt-session-git/lxqt-session-git.tar.gz
@@ -388,7 +427,7 @@
         }
       #+END_SRC
 3. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Install_data_files][Install data files]]
-   1. [ ] build and install lxqt-common
+   1. [ ] build lxqt-common
       #+BEGIN_SRC sh :tangle lxqt-common/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer
@@ -429,7 +468,7 @@
         }
         
       #+END_SRC
-   2. [ ] build and install lxmenu-data
+   2. [ ] build lxmenu-data
       #+BEGIN_SRC sh
         pacman --sync lxmenu-data
       #+END_SRC
@@ -446,4 +485,45 @@
     
   #+END_SRC
 * [[https://wiki.archlinux.org/index.php/pacman][Pacman]] package groups
-  
+* PKGBUILD Template
+  #+BEGIN_SRC sh
+    # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+    # wget https://aur.archlinux.org/packages/lx/lxqt-session-git/lxqt-session-git.tar.gz
+            
+    _pkgname=lxqt-session
+    # pkgname=$_pkgname-git
+    pkgname=$_pkgname
+    pkgver=0.5
+    pkgrel=1
+    pkgdesc="LXQt session"
+    arch=('i686' 'x86_64')
+    url="http://www.lxde.org"
+    license=('GPL2')
+    groups=('lxqt')
+    depends=('liblxqt>=0.5.r253')
+    makedepends=('git' 'cmake>=2.6')
+    provides=($_pkgname)
+    conflicts=($_pkgname)
+    source=("git://github.com/lxde/$_pkgname.git")
+    sha256sums=('SKIP')
+    _gitname=$_pkgname
+    
+    pkgver() {
+        cd "$srcdir/$_gitname"
+        printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+    }
+    
+    build() {
+        cd "$srcdir/$_gitname"
+        mkdir -p build
+        cd build
+        cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+        make
+    }
+    
+    package() {
+        cd "$srcdir/$_gitname"
+        cd build
+        make DESTDIR="$pkgdir" install
+    }
+  #+END_SRC
