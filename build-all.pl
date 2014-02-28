@@ -6,7 +6,8 @@ use File::Copy qw(copy move);
 my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys lxqt-notificationd libsysstat
 
                    lxqt-panel pcmanfm-qt lxqt-session lxqt-runner lxqt-qtplugin lxqt-appswitcher
-                   lxqt-policykit lxqt-openssh-askpass lxqt-power lxqt-powermanagement
+                   lxqt-policykit lxqt-openssh-askpass lxqt-power lxqt-powermanagement lximage-qt
+
 
                    lxqt-common
                 );
