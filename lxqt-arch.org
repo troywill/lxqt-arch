@@ -24,7 +24,7 @@
   |  81 | lxqt-power           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-power][#lxqt-power]]           | [[https://github.com/lxde/lxqt-power][lxde/lxqt-power]]           | [[https://aur.archlinux.org/packages/lxqt-power-git/][lxqt-power-git]]           |
   |  68 | lxqt-powermanagement | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-powermanagement][#lxqt-powermanagement]] | [[https://github.com/lxde/lxqt-powermanagement][lxde/lxqt-powermanagement]] | [[https://aur.archlinux.org/packages/lxqt-powermanagement-git/][lxqt-powermanagement-git]] |
   |  62 | lximage-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lximage-qt][#lximage-qt]]           | [[https://github.com/lxde/lximage-qt][lxde/lximage-qt]]           | [[https://aur.archlinux.org/packages/lximage-qt-git/][lximage-qt-git]]           |
-  | tdw | lxqt-config          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config][#lxqt-config]]          | [[https://github.com/lxde/lxqt-config][lxde/lxqt-config]]          | [[https://aur.archlinux.org/packages/lxqt-config-git/][lxqt-config-git]]          |
+  | 216 | lxqt-config          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config][#lxqt-config]]          | [[https://github.com/lxde/lxqt-config][lxde/lxqt-config]]          | [[https://aur.archlinux.org/packages/lxqt-config-git/][lxqt-config-git]]          |
   |     | lxinput-qt           |                       |                           |                          |
   |     | lxqt-config-randr    |                       |                           |                          |
   |     | obconf-qt            |                       |                           |                          |

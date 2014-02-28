@@ -1,0 +1,40 @@
+# Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+# Current Maintainer: Troy Will <troydwill@gmail.com>
+     
+_pkgname=lxqt-panel
+# pkgname=$_pkgname-git
+pkgname=$_pkgname
+pkgver=0.5
+pkgrel=1
+pkgdesc="Package description here."
+arch=('i686' 'x86_64')
+url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
+license=('GPL2')
+groups=('lxqt')
+depends=('qt4>=4.6' 'libqtxdg>=0.5.r150' 'liblxqt>=0.5.r253' 'lxqt-globalkeys>=0.5.r107' 'liblxqt-mount>=0.5.r37' 'libx11' 'libsysstat>=0.5.r20')
+makedepends=('git' 'cmake>=2.6')
+provides=("$_pkgname")
+conflicts=("$_pkgname" "razor-qt")
+source=("git://github.com/lxde/$_pkgname.git")
+# Because the source is not static, skip Git checksum:        
+sha256sums=('SKIP')
+_gitname=$_pkgname
+
+pkgver() {
+    cd "$srcdir/$_gitname"
+    printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "$srcdir/$_gitname"
+    mkdir -p build
+    cd build
+    cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+    make
+}
+
+package() {
+    cd "$srcdir/$_gitname"
+    cd build
+    make DESTDIR="$pkgdir" install
+}
