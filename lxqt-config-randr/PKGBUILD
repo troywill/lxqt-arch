@@ -1,6 +1,7 @@
 # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
-_pkgname=lxrandr-qt
+# _pkgname=lxrandr-qt
+_pkgname=lxqt-config-randr
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
 pkgver=0.5
