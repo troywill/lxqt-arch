@@ -11,7 +11,7 @@
   |     | menu-cache         |          |     |                     |                    |                        |
   |     | libfm              |          |     |                     |                    |                        |
   #+NAME: major-components
-  |   r | Name                 |    Built | Web           | GitHub          | AUR            |
+  | rel | Name                 |    Built | Web           | GitHub          | AUR            |
   |-----+----------------------+----------+---------------+-----------------+----------------|
   | 800 | [[file:lxqt-panel-git/PKGBUILD][lxqt-panel]]           | 14-02-25 | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]]   | [[https://github.com/lxde/lxqt-panel][lxde/lxqt-panel]] | [[https://aur.archlinux.org/packages/lxqt-panel-git][lxqt-panel-git]] |
   |     | pcmanfm-qt           |          |               |                 |                |
@@ -31,6 +31,12 @@
   |     | compton-conf         |          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]] | [[https://github.com/lxde/compton-conf][compton-conf]]    |                |
   |     | lxqt-about           |          |               |                 |                |
   |     | lxqt-lightdm-greeter |          |               |                 |                |
+  #+NAME: data-files
+  | rel | Name        | Built | Web | GitHub | AUR |
+  |-----+-------------+-------+-----+--------+-----|
+  |  15 | lxqt-common |       |     |        |     |
+  |     |             |       |     |        |     |
+  
 * Step by step package build
 1. [ ]  Build the base libraries
    1. [ ] build and install [[https://github.com/lxde/libqtxdg][libqtxdg]] 
@@ -285,6 +291,139 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
+2. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Build_major_components][Build major components]]
+   1. [ ] build and install lxqt-panel
+      #+BEGIN_SRC sh :tangle lxqt-panel/PKGBUILD :padline no
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # Current Maintainer: Troy Will <troydwill@gmail.com>
+             
+        _pkgname=lxqt-panel
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.5
+        pkgrel=1
+        pkgdesc="Package description here."
+        arch=('i686' 'x86_64')
+        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
+        license=('GPL2')
+        depends=('qt4>=4.6' 'libqtxdg>=0.5.r150' 'liblxqt>=0.5.r253' 'lxqt-globalkeys>=0.5.r107' 'liblxqt-mount>=0.5.r37' 'libx11' 'libsysstat>=0.5.r20')
+        makedepends=('git' 'cmake>=2.6')
+        provides=("$_pkgname")
+        conflicts=("$_pkgname" "razor-qt")
+        source=("git://github.com/lxde/$_pkgname.git")
+        # Because the source is not static, skip Git checksum:        
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+        }
+        
+        build() {
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
+        }
+        
+        package() {
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
+        }
+      #+END_SRC
+   2. [ ] build and install [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]] (See [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]])
+      #+BEGIN_SRC sh
+        wget https://aur.archlinux.org/packages/pc/pcmanfm-qt-git/pcmanfm-qt-git.tar.gz
+       #+END_SRC
+   3. [ ] build and install [[https://aur.archlinux.org/packages/lxqt-session-git/][lxqt-session-git]]
+      #+BEGIN_SRC sh :tangle lxqt-session/PKGBUILD :padline no
+        # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # wget https://aur.archlinux.org/packages/lx/lxqt-session-git/lxqt-session-git.tar.gz
+        
+        _pkgname=lxqt-session
+        pkgname=$_pkgname-git
+        pkgver=0.5
+        pkgrel=1
+        pkgdesc="LXQt session"
+        arch=('i686' 'x86_64')
+        url="http://www.lxde.org"
+        license=('GPL2')
+        depends=('liblxqt>=0.5.r253')
+        makedepends=('git' 'cmake')
+        provides=($_pkgname)
+        conflicts=($_pkgname)
+        source=("git://github.com/lxde/$_pkgname.git")
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+        }
+        
+        build() {
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
+        }
+        
+        package() {
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
+        }
+      #+END_SRC
+3. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Install_data_files][Install data files]]
+   1. [ ] build and install lxqt-common
+      #+BEGIN_SRC sh :tangle lxqt-common/PKGBUILD :padline no
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # Current Maintainer
+        _pkgname=lxqt-common
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.5
+        pkgrel=1
+        pkgdesc="Common data to run a LXQt session."
+        arch=('i686' 'x86_64')
+        url="http://www.lxde.org"
+        license=('GPL2')
+        makedepends=('git' 'cmake')
+        provides=($_pkgname)
+        conflicts=($_pkgname)
+        source=("git://github.com/lxde/$_pkgname.git")
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+        }
+        
+        build() {
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
+        }
+        
+        package() {
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
+        }
+        
+      #+END_SRC
+   2. [ ] build and install lxmenu-data
+      #+BEGIN_SRC sh
+        pacman --sync lxmenu-data
+      #+END_SRC
+
 * Custom Repository
   #+BEGIN_SRC conf
     #

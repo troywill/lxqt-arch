@@ -2,8 +2,9 @@
 use warnings;
 use strict;
 
-my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys
-                   lxqt-notificationd libsysstat
+my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys lxqt-notificationd libsysstat
+                   lxqt-panel lxqt-session
+                   lxqt-common
                 );
 
 foreach my $package (@packages) {
