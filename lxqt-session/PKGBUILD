@@ -2,7 +2,8 @@
 # wget https://aur.archlinux.org/packages/lx/lxqt-session-git/lxqt-session-git.tar.gz
 
 _pkgname=lxqt-session
-pkgname=$_pkgname-git
+# pkgname=$_pkgname-git
+pkgname=$_pkgname
 pkgver=0.5
 pkgrel=1
 pkgdesc="LXQt session"
