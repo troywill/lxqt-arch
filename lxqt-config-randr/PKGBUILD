@@ -1,11 +1,11 @@
-# Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+# Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
-_pkgname=lxinput-qt
+_pkgname=lxrandr-qt
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
 pkgver=0.5
 pkgrel=1
-pkgdesc="LXQt keyboard and mouse configuration."
+pkgdesc="LXQt monitor configuration."
 arch=('i686' 'x86_64')
 url="http://www.lxde.org"
 license=('GPL2')
@@ -32,7 +32,7 @@ build() {
 }
 
 package() {
-        cd "$srcdir/$_gitname"
-        cd build
-        make DESTDIR="$pkgdir" install
+    cd "$srcdir/$_gitname"
+    cd build
+    make DESTDIR="$pkgdir" install
 }

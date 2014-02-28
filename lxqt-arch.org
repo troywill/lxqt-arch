@@ -25,8 +25,8 @@
   |  68 | lxqt-powermanagement | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-powermanagement][#lxqt-powermanagement]] | [[https://github.com/lxde/lxqt-powermanagement][lxde/lxqt-powermanagement]] | [[https://aur.archlinux.org/packages/lxqt-powermanagement-git/][lxqt-powermanagement-git]] |
   |  62 | lximage-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lximage-qt][#lximage-qt]]           | [[https://github.com/lxde/lximage-qt][lxde/lximage-qt]]           | [[https://aur.archlinux.org/packages/lximage-qt-git/][lximage-qt-git]]           |
   | 216 | lxqt-config          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config][#lxqt-config]]          | [[https://github.com/lxde/lxqt-config][lxde/lxqt-config]]          | [[https://aur.archlinux.org/packages/lxqt-config-git/][lxqt-config-git]]          |
-  | tdw | lxinput-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxinput-qt][#lxinput-qt]]           | [[https://github.com/lxde/lxinput-qt][lxde/lxinput-qt]]           | [[https://aur.archlinux.org/packages/lxinput-qt-git/][1]] [[https://gist.github.com/Adys/7130117][2]]                      |
-  |     | lxqt-config-randr    |                       |                           |                          |
+  |  53 | lxinput-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxinput-qt][#lxinput-qt]]           | [[https://github.com/lxde/lxinput-qt][lxde/lxinput-qt]]           | [[https://aur.archlinux.org/packages/lxinput-qt-git/][1]] [[https://gist.github.com/Adys/7130117][2]]                      |
+  | tdw | lxqt-config-randr    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config-randr][#lxqt-config-randr]]    | [[https://github.com/lxde/lxqt-config-randr][lxde/lxqt-config-randr]]    | [[https://aur.archlinux.org/packages/lxrandr-qt-git/][lxrandr-qt-git]]           |
   |     | obconf-qt            |                       |                           |                          |
   |     | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]]         | [[https://github.com/lxde/compton-conf][compton-conf]]              |                          |
   |     | lxqt-about           |                       |                           |                          |
@@ -761,7 +761,7 @@
          }
          
        #+END_SRC
-   11. [ ] build lxqt-config
+   12. [ ] build lxqt-config
        #+BEGIN_SRC sh :tangle lxqt-config/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
          
@@ -803,7 +803,7 @@
          }
                 
        #+END_SRC
-   12. [ ] build lxinput-qt
+   13. [ ] build lxinput-qt
        #+BEGIN_SRC sh :tangle lxinput-qt/PKGBUILD :padline no
          # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
          
@@ -816,6 +816,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('GPL2')
+         groups=('lxqt')
          depends=('qt4>=4.6')
          makedepends=('git' 'cmake>=2.6')
          provides=($_pkgname)
@@ -841,6 +842,47 @@
                  cd "$srcdir/$_gitname"
                  cd build
                  make DESTDIR="$pkgdir" install
+         }
+       #+END_SRC
+   14. [ ] build lxqt-config-randr
+       #+BEGIN_SRC sh :tangle lxqt-config-randr/PKGBUILD :padline no
+         # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+         
+         _pkgname=lxrandr-qt
+         # pkgname=$_pkgname-git
+         pkgname=$_pkgname
+         pkgver=0.5
+         pkgrel=1
+         pkgdesc="LXQt monitor configuration."
+         arch=('i686' 'x86_64')
+         url="http://www.lxde.org"
+         license=('GPL2')
+         groups=('lxqt')
+         depends=('qt4>=4.6')
+         makedepends=('git' 'cmake>=2.6')
+         provides=($_pkgname)
+         conflicts=($_pkgname)
+         source=("git://github.com/lxde/$_pkgname.git")
+         sha256sums=('SKIP')
+         _gitname=$_pkgname
+         
+         pkgver() {
+             cd "$srcdir/$_gitname"
+             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+         }
+         
+         build() {
+             cd "$srcdir/$_gitname"
+             mkdir -p build
+             cd build
+             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             make
+         }
+         
+         package() {
+             cd "$srcdir/$_gitname"
+             cd build
+             make DESTDIR="$pkgdir" install
          }
        #+END_SRC
 
