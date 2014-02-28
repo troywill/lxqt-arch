@@ -11,26 +11,26 @@
   |     | menu-cache         |                     |                         |                        |
   |     | libfm              |                     |                         |                        |
   #+NAME: major-components
-  | rel | Name                 | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]     | GitHub                | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                  |
-  |-----+----------------------+-------------------+-----------------------+----------------------|
-  | 800 | lxqt-panel           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]]       | [[https://github.com/lxde/lxqt-panel][lxde/lxqt-panel]]       | [[https://aur.archlinux.org/packages/lxqt-panel-git][lxqt-panel-git]]       |
-  | 180 | pcmanfm-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]]       | [[https://github.com/lxde/pcmanfm-qt][lxde/pcmanfm-qt]]       | [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]]       |
-  | 198 | lxqt-session         |                   |                       |                      |
-  | 113 | lxqt-runner          |                   |                       |                      |
-  |   1 | lxqt-qtplugin        | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-qtplugin][#lxqt-qtplugin]]    | [[https://github.com/lxde/lxqt-qtplugin][lxde/lxqt-qtplugin]]    | n/a                  |
-  |  40 | lxqt-appswitcher     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-appswitcher][#lxqt-appswitcher]] | [[https://github.com/lxde/lxqt-appswitcher][lxde/lxqt-appswitcher]] | [[https://aur.archlinux.org/packages/lxqt-appswitcher-git/][lxqt-appswitcher-git]] |
-  | TDW | lxqt-policykit       | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-policykit][#lxqt-policykit]]   | [[https://github.com/lxde/lxqt-policykit][lxde/lxqt-policykit]]   | [[https://aur.archlinux.org/packages/lxqt-policykit-git/][lxqt-policykit-git]]   |
-  |     | lxqt-openssh-askpass |                   |                       |                      |
-  |     | lxqt-power           |                   |                       |                      |
-  |     | lxqt-powermanagement |                   |                       |                      |
-  |     | lximage-qt           |                   |                       |                      |
-  |     | lxqt-config          |                   |                       |                      |
-  |     | lxinput-qt           |                   |                       |                      |
-  |     | lxqt-config-randr    |                   |                       |                      |
-  |     | obconf-qt            |                   |                       |                      |
-  |     | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]]     | [[https://github.com/lxde/compton-conf][compton-conf]]          |                      |
-  |     | lxqt-about           |                   |                       |                      |
-  |     | lxqt-lightdm-greeter |                   |                       |                      |
+  | rel | Name                 | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]         | [[https://github.com/lxde][Git Repo]]                  | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                      |
+  |-----+----------------------+-----------------------+---------------------------+--------------------------|
+  | 800 | lxqt-panel           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]]           | [[https://github.com/lxde/lxqt-panel][lxde/lxqt-panel]]           | [[https://aur.archlinux.org/packages/lxqt-panel-git][lxqt-panel-git]]           |
+  | 180 | pcmanfm-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]]           | [[https://github.com/lxde/pcmanfm-qt][lxde/pcmanfm-qt]]           | [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]]           |
+  | 198 | lxqt-session         |                       | [[https://github.com/lxde/lxsession][lxde/lxsession]]            |                          |
+  | 113 | lxqt-runner          |                       | [[https://github.com/lxde/lxqt-runner][lxde/lxqt-runner]]          |                          |
+  |   1 | lxqt-qtplugin        | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-qtplugin][#lxqt-qtplugin]]        | [[https://github.com/lxde/lxqt-qtplugin][lxde/lxqt-qtplugin]]        | n/a                      |
+  |  40 | lxqt-appswitcher     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-appswitcher][#lxqt-appswitcher]]     | [[https://github.com/lxde/lxqt-appswitcher][lxde/lxqt-appswitcher]]     | [[https://aur.archlinux.org/packages/lxqt-appswitcher-git/][lxqt-appswitcher-git]]     |
+  |  14 | lxqt-policykit       | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-policykit][#lxqt-policykit]]       | [[https://github.com/lxde/lxqt-policykit][lxde/lxqt-policykit]]       | [[https://aur.archlinux.org/packages/lxqt-policykit-git/][lxqt-policykit-git]]       |
+  |  11 | lxqt-openssh-askpass | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-openssh-askpass][#lxqt-openssh-askpass]] | [[https://github.com/lxde/lxqt-openssh-askpass][lxde/lxqt-openssh-askpass]] | [[https://aur.archlinux.org/packages/lxqt-openssh-askpass-git/][lxqt-openssh-askpass-git]] |
+  |  81 | lxqt-power           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-power][#lxqt-power]]           | [[https://github.com/lxde/lxqt-power][lxde/lxqt-power]]           | [[https://aur.archlinux.org/packages/lxqt-power-git/][lxqt-power-git]]           |
+  |  68 | lxqt-powermanagement | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-powermanagement][#lxqt-powermanagement]] | [[https://github.com/lxde/lxqt-powermanagement][lxde/lxqt-powermanagement]] | [[https://aur.archlinux.org/packages/lxqt-powermanagement-git/][lxqt-powermanagement-git]] |
+  | tdw | lximage-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lximage-qt][#lximage-qt]]           | [[https://github.com/lxde/lximage-qt][lxde/lximage-qt]]           | [[https://aur.archlinux.org/packages/lximage-qt-git/][lximage-qt-git]]           |
+  |     | lxqt-config          |                       |                           |                          |
+  |     | lxinput-qt           |                       |                           |                          |
+  |     | lxqt-config-randr    |                       |                           |                          |
+  |     | obconf-qt            |                       |                           |                          |
+  |     | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]]         | [[https://github.com/lxde/compton-conf][compton-conf]]              |                          |
+  |     | lxqt-about           |                       |                           |                          |
+  |     | lxqt-lightdm-greeter |                       |                           |                          |
   #+NAME: data-files
   | rel | Name        | Built | Web | GitHub | AUR |
   |-----+-------------+-------+-----+--------+-----|
@@ -42,89 +42,89 @@
    1. [ ] build [[https://github.com/lxde/libqtxdg][libqtxdg]] 
       - Library providing freedesktop.org specs implementations for Qt.
       #+BEGIN_SRC sh :tangle libqtxdg/PKGBUILD
-        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Current Maintainer: Troy Will <troydwill@gmail.com>
+      # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+      # Current Maintainer: Troy Will <troydwill@gmail.com>
             
-        _pkgname=libqtxdg
-        # pkgname=$_pkgname-git
-        pkgname=$_pkgname
-        pkgver=0.5
-        pkgrel=2
-        pkgdesc="Library providing freedesktop.org specs implementations for Qt."
-        arch=('i686' 'x86_64')
-        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
-        license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>=4.6')
-        makedepends=('git' 'cmake>=2.6')
-        provides=("$_pkgname")
-        conflicts=("$_pkgname" "razor-qt")
-        source=("git://github.com/lxde/$_pkgname.git")
-        # Because the source is not static, skip Git checksum:        
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
+      _pkgname=libqtxdg
+      # pkgname=$_pkgname-git
+      pkgname=$_pkgname
+      pkgver=0.5
+      pkgrel=2
+      pkgdesc="Library providing freedesktop.org specs implementations for Qt."
+      arch=('i686' 'x86_64')
+      url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
+      license=('GPL2')
+      groups=('lxqt')
+      depends=('qt4>=4.6')
+      makedepends=('git' 'cmake>=2.6')
+      provides=("$_pkgname")
+      conflicts=("$_pkgname" "razor-qt")
+      source=("git://github.com/lxde/$_pkgname.git")
+      # Because the source is not static, skip Git checksum:        
+      sha256sums=('SKIP')
+      _gitname=$_pkgname
             
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
+      pkgver() {
+      cd "$srcdir/$_gitname"
+      printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+      }
             
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-            make
-        }
+      build() {
+      cd "$srcdir/$_gitname"
+      mkdir -p build
+      cd build
+      cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+      make
+      }
             
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+      package() {
+      cd "$srcdir/$_gitname"
+      cd build
+      make DESTDIR="$pkgdir" install
+      }
       #+END_SRC
    2. [ ] build [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
       #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
-        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Current Maintainer: Troy Will <troydwill@gmail.com>
+      # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+      # Current Maintainer: Troy Will <troydwill@gmail.com>
             
-        _pkgname=liblxqt
-        # pkgname=$_pkgname-git
-        pkgname=$_pkgname
-        pkgver=0.5
-        pkgrel=1
-        pkgdesc="Common base library for LXQt components."
-        arch=('i686' 'x86_64')
-        url="http://www.lxde.org"
-        license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
-        makedepends=('git' 'cmake>=2.6')
-        provides=($_pkgname)
-        conflicts=($_pkgname)
-        source=("git://github.com/lxde/$_pkgname.git")
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
+      _pkgname=liblxqt
+      # pkgname=$_pkgname-git
+      pkgname=$_pkgname
+      pkgver=0.5
+      pkgrel=1
+      pkgdesc="Common base library for LXQt components."
+      arch=('i686' 'x86_64')
+      url="http://www.lxde.org"
+      license=('GPL2')
+      groups=('lxqt')
+      depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
+      makedepends=('git' 'cmake>=2.6')
+      provides=($_pkgname)
+      conflicts=($_pkgname)
+      source=("git://github.com/lxde/$_pkgname.git")
+      sha256sums=('SKIP')
+      _gitname=$_pkgname
             
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
+      pkgver() {
+      cd "$srcdir/$_gitname"
+      printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+      }
             
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-            make
-        }
+      build() {
+      cd "$srcdir/$_gitname"
+      mkdir -p build
+      cd build
+      cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+      make
+      }
             
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+      package() {
+      cd "$srcdir/$_gitname"
+      cd build
+      make DESTDIR="$pkgdir" install
+      }
       #+END_SRC
    3. [ ] build [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
       #+BEGIN_SRC sh :tangle liblxqt-mount/PKGBUILD :padline no
@@ -553,7 +553,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   6. [ ] build lxqt-policykit
+   7. [ ] build lxqt-policykit
       #+BEGIN_SRC sh :tangle lxqt-policykit/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Mainter: Troy Will <troydwill@gmail.com>
@@ -566,6 +566,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
+        groups=('lxqt')
         depends=('qt4>4.6' 'liblxqt>=0.5.r253' 'libqtxdg>=0.5.r150' 'polkit-qt')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
@@ -594,6 +595,172 @@
         }
         
       #+END_SRC
+   8. [ ] build lxqt-openssh-askpass
+      #+BEGIN_SRC sh :tangle lxqt-openssh-askpass/PKGBUILD :padline no
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        
+        _pkgname=lxqt-openssh-askpass
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.5
+        pkgrel=1
+        pkgdesc="LXQt openssh password prompt"
+        arch=('i686' 'x86_64')
+        url="http://www.lxde.org"
+        license=('GPL2')
+        groups=('lxqt')
+        depends=('qt4>4.6' 'liblxqt>=0.5.r253')
+        makedepends=('git' 'cmake>=2.6')
+        provides=($_pkgname)
+        conflicts=($_pkgname)
+        source=("git://github.com/lxde/$_pkgname.git")
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+        }
+        
+        build() {
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
+        }
+        
+        package() {
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
+        }
+      #+END_SRC
+   9. [ ] build lxqt-power
+      #+BEGIN_SRC sh :tangle lxqt-power/PKGBUILD :padline no
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        
+        _pkgname=lxqt-power
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.5
+        pkgrel=1
+        pkgdesc="LXQt poweroff/hibernate utility"
+        arch=('i686' 'x86_64')
+        url="http://www.lxde.org"
+        license=('GPL2')
+        groups=('lxqt')
+        depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
+        makedepends=('git' 'cmake>=2.6')
+        provides=($_pkgname)
+        conflicts=($_pkgname)
+        source=("git://github.com/lxde/$_pkgname.git")
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+        }
+        
+        
+        build() {
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
+        }
+        
+        package() {
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
+        }
+      #+END_SRC
+   10. [ ] build lxqt-powermanagement
+       #+BEGIN_SRC sh :tangle lxqt-powermanagement/PKGBUILD :padline no
+         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        
+         _pkgname=lxqt-powermanagement
+         # pkgname=$_pkgname-git
+         pkgname=$_pkgname
+         pkgver=0.5
+         pkgrel=1
+         pkgdesc="LXQt power management daemon"
+         arch=('i686' 'x86_64')
+         url="http://www.lxde.org"
+         license=('GPL2')
+         groups=('lxqt')
+         depends=('qt4>=4.6' 'liblxqt>=0.5.r253' 'libxcb')
+         makedepends=('git' 'cmake>=2.6')
+         provides=($_pkgname)
+         conflicts=($_pkgname)
+         source=("git://github.com/lxde/$_pkgname.git")
+         sha256sums=('SKIP')
+         _gitname=$_pkgname
+        
+         pkgver() {
+             cd "$srcdir/$_gitname"
+             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+         }
+        
+         build() {
+             cd "$srcdir/$_gitname"
+             mkdir -p build
+             cd build
+             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             make
+         }
+        
+         package() {
+             cd "$srcdir/$_gitname"
+             cd build
+             make DESTDIR="$pkgdir" install
+         }
+       #+END_SRC
+   11. [ ] build lximage-qt
+       #+BEGIN_SRC sh :tangle lximage-qt/PKGBUILD :padline no
+         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+         
+         _pkgname=lximage-qt
+         # pkgname=$_pkgname-git
+         pkgname=$_pkgname
+         pkgver=0.5
+         pkgrel=1
+         pkgdesc="The LXQt image viewer"
+         arch=('i686' 'x86_64')
+         url="http://www.lxde.org"
+         license=('GPL2')
+         groups=('lxqt')
+         depends=('qt4>=4.6' 'pcmanfm-qt>=0.5.r180')
+         makedepends=('git' 'cmake>=2.8.3' 'pkg-config')
+         provides=($_pkgname)
+         conflicts=($_pkgname)
+         source=("git://github.com/lxde/$_pkgname.git")
+         sha256sums=('SKIP')
+         _gitname=$_pkgname
+         
+         pkgver() {
+             cd "$srcdir/$_gitname"
+             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+         }
+         
+         build() {
+             cd "$srcdir/$_gitname"
+             mkdir -p build
+             cd build
+             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             make
+         }
+         
+         package() {
+             cd "$srcdir/$_gitname"
+             cd build
+             make DESTDIR="$pkgdir" install
+         }
+         
+       #+END_SRC
 3. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Install_data_files][Install data files]]
    1. [ ] build lxqt-common
       #+BEGIN_SRC sh :tangle lxqt-common/PKGBUILD :padline no
