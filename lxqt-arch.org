@@ -28,9 +28,10 @@
   |  53 | lxinput-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxinput-qt][#lxinput-qt]]           | [[https://github.com/lxde/lxinput-qt][lxde/lxinput-qt]]           | [[https://aur.archlinux.org/packages/lxinput-qt-git/][1]] [[https://gist.github.com/Adys/7130117][2]]                      |
   |   3 | lxqt-config-randr    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config-randr][#lxqt-config-randr]]    | [[https://github.com/lxde/lxqt-config-randr][lxde/lxqt-config-randr]]    | [[https://aur.archlinux.org/packages/lxrandr-qt-git/][lxrandr-qt-git]]           |
   |  53 | obconf-qt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#obconf-qt][#obconf-qt]]            | [[https://github.com/lxde/obconf-qt][lxde/obconf-qt]]            | [[https://aur.archlinux.org/packages/obconf-qt-git/][obconf-qt-git]]            |
-  |     | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]]         | [[https://github.com/lxde/compton-conf][compton-conf]]              |                          |
-  |     | lxqt-about           |                       |                           |                          |
-  |     | lxqt-lightdm-greeter |                       |                           |                          |
+  |   5 | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]]         | [[https://github.com/lxde/compton-conf][compton-conf]]              | n/a                      |
+  |  17 | lxqt-about           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-about][#lxqt-about]]           | [[https://github.com/lxde/lxqt-about][lxde/lxqt-about]]           | [[https://aur.archlinux.org/packages/lxqt-about-git/][lxqt-about-git]]           |
+  |  56 | lxqt-lightdm-greeter | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-lightdm-greeter][#lxqt-lightdm-greeter]] | [[https://github.com/lxde/lxqt-lightdm-greeter][lxde/lxqt-lightdm-greeter]] | [[https://aur.archlinux.org/packages/lxqt-lightdm-greeter-git][lxqt-lightdm-greeter-git]] |
+
   #+NAME: data-files
   | rel | Name        | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]] | [[https://github.com/lxde][Git Repo]] | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]] |
   |-----+-------------+---------------+----------+-----|
@@ -975,6 +976,110 @@
              cd "$srcdir/$_gitname"
              cd build
              make DESTDIR="$pkgdir" install
+         }
+       #+END_SRC
+   17. [ ] build lxqt-about
+       #+BEGIN_SRC sh :tangle lxqt-about/PKGBUILD :padline no
+         # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+         
+         _pkgname=lxqt-about
+         # pkgname=$_pkgname-git
+         pkgname=$_pkgname
+         pkgver=0.5
+         pkgrel=1
+         pkgdesc="LXQt about dialog."
+         arch=('i686' 'x86_64')
+         url="http://www.lxde.org"
+         license=('GPL2')
+         groups=('lxqt')
+         depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
+         makedepends=('git' 'cmake>=2.6')
+         provides=($_pkgname)
+         conflicts=($_pkgname)
+         source=("git://github.com/lxde/$_pkgname.git")
+         sha256sums=('SKIP')
+         _gitname=$_pkgname
+         
+         pkgver() {
+             cd "$srcdir/$_gitname"
+             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+         }
+         
+         build() {
+             cd "$srcdir/$_gitname"
+             mkdir -p build
+             cd build
+             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             make
+         }
+         
+         package() {
+             cd "$srcdir/$_gitname"
+             cd build
+             make DESTDIR="$pkgdir" install
+         }
+       #+END_SRC
+   18. [ ] build lxqt-lightdm-greeter
+       #+BEGIN_SRC sh :tangle lxqt-lightdm-greeter/PKGBUILD :padline no
+         # Original maintainer: faerbit <faerbit at gmail dot com>
+         
+         _pkgname=lxqt-lightdm-greeter
+         # pkgname=$_pkgname-git
+         pkgname=$_pkgname
+         pkgver=0.5
+         pkgrel=1
+         pkgdesc="A greeter for lightdm"
+         arch=('i686' 'x86_64')
+         url="http://www.lxde.org"
+         license=('LGPL')
+         groups=('lxqt')
+         depends=('liblxqt>=0.5.r253' 'liblightdm-qt4')
+         makedepends=('git' 'cmake>=2.6' 'lxqt-powermanagement>=0.5.r68')
+         provides=($_pkgname)
+         conflicts=($_pkgname)
+         source=("git://github.com/lxde/$_pkgname.git"
+                 "lxqt-lightdm-greeter.install")
+         sha1sums=('SKIP'
+                   'cbc5f1ce7e62964fa38b04951bdc3770330dcc68')
+         install=lxqt-lightdm-greeter.install
+         _gitname=$_pkgname
+         
+         pkgver() {
+             cd "$srcdir/$_gitname"
+             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+         }
+         
+         build() {
+             cd "$srcdir/$_gitname"
+             mkdir -p build
+             cd build
+             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             make
+         }
+         
+         package() {
+             cd "$srcdir/$_gitname"
+             cd build
+             make DESTDIR="$pkgdir" install
+         }
+       #+END_SRC
+       #+BEGIN_SRC sh :tangle lxqt-lightdm-greeter/lxqt-lightdm-greeter.install :padline no
+         ## arg 1:  the new package version
+         post_install() {
+             echo
+             echo "==> You have to change /etc/lightdm/lightdm.conf"
+             echo "==> in order to have this greeter be used by lightdm."
+             echo "==> Change the greeter-session under SeatDefaults to the following:"
+             echo "==> greeter-session=lxqt-lightdm-greeter"
+             echo
+         }
+         
+         ## arg 1:  the old package version
+         post_remove() {
+             echo 
+             echo "==> You may want to change your greeter under /etc/lightdm/lightdm.conf"
+             echo "==> (Set the greeter-session to some greeter that is installed on your system)."
+             echo
          }
        #+END_SRC
 3. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Install_data_files][Install data files]]

@@ -1,0 +1,41 @@
+# Original maintainer: faerbit <faerbit at gmail dot com>
+
+_pkgname=lxqt-lightdm-greeter
+# pkgname=$_pkgname-git
+pkgname=$_pkgname
+pkgver=0.5
+pkgrel=1
+pkgdesc="A greeter for lightdm"
+arch=('i686' 'x86_64')
+url="http://www.lxde.org"
+license=('LGPL')
+groups=('lxqt')
+depends=('liblxqt>=0.5.r253' 'liblightdm-qt4')
+makedepends=('git' 'cmake>=2.6' 'lxqt-powermanagement>=0.5.r68')
+provides=($_pkgname)
+conflicts=($_pkgname)
+source=("git://github.com/lxde/$_pkgname.git"
+        "lxqt-lightdm-greeter.install")
+sha1sums=('SKIP'
+          'cbc5f1ce7e62964fa38b04951bdc3770330dcc68')
+install=lxqt-lightdm-greeter.install
+_gitname=$_pkgname
+
+pkgver() {
+    cd "$srcdir/$_gitname"
+    printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "$srcdir/$_gitname"
+    mkdir -p build
+    cd build
+    cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+    make
+}
+
+package() {
+    cd "$srcdir/$_gitname"
+    cd build
+    make DESTDIR="$pkgdir" install
+}
