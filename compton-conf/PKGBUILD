@@ -1,5 +1,5 @@
 # Maintainer: Troy Will <troydwill@gmail.com>
-         
+
 _pkgname=compton-conf
 # pkgname=$_pkgname-git
 pkgname=$_pkgname

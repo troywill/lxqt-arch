@@ -42,89 +42,89 @@
    1. [ ] build [[https://github.com/lxde/libqtxdg][libqtxdg]] 
       - Library providing freedesktop.org specs implementations for Qt.
       #+BEGIN_SRC sh :tangle libqtxdg/PKGBUILD
-      # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-      # Current Maintainer: Troy Will <troydwill@gmail.com>
-              
-      _pkgname=libqtxdg
-      # pkgname=$_pkgname-git
-      pkgname=$_pkgname
-      pkgver=0.5
-      pkgrel=2
-      pkgdesc="Library providing freedesktop.org specs implementations for Qt."
-      arch=('i686' 'x86_64')
-      url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
-      license=('GPL2')
-      groups=('lxqt')
-      depends=('qt4>=4.6')
-      makedepends=('git' 'cmake>=2.6')
-      provides=("$_pkgname")
-      conflicts=("$_pkgname" "razor-qt")
-      source=("git://github.com/lxde/$_pkgname.git")
-      # Because the source is not static, skip Git checksum:        
-      sha256sums=('SKIP')
-      _gitname=$_pkgname
-              
-      pkgver() {
-      cd "$srcdir/$_gitname"
-      printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-      }
-              
-      build() {
-      cd "$srcdir/$_gitname"
-      mkdir -p build
-      cd build
-      cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-      make
-      }
-              
-      package() {
-      cd "$srcdir/$_gitname"
-      cd build
-      make DESTDIR="$pkgdir" install
-      }
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # Current Maintainer: Troy Will <troydwill@gmail.com>
+        
+        _pkgname=libqtxdg
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.5
+        pkgrel=2
+        pkgdesc="Library providing freedesktop.org specs implementations for Qt."
+        arch=('i686' 'x86_64')
+        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
+        license=('GPL2')
+        groups=('lxqt')
+        depends=('qt4>=4.6')
+        makedepends=('git' 'cmake>=2.6')
+        provides=("$_pkgname")
+        conflicts=("$_pkgname" "razor-qt")
+        source=("git://github.com/lxde/$_pkgname.git")
+        # Because the source is not static, skip Git checksum:        
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+        }
+        
+        build() {
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
+        }
+        
+        package() {
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
+        }
       #+END_SRC
    2. [ ] build [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
       #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
-      # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-      # Current Maintainer: Troy Will <troydwill@gmail.com>
-              
-      _pkgname=liblxqt
-      # pkgname=$_pkgname-git
-      pkgname=$_pkgname
-      pkgver=0.5
-      pkgrel=1
-      pkgdesc="Common base library for LXQt components."
-      arch=('i686' 'x86_64')
-      url="http://www.lxde.org"
-      license=('GPL2')
-      groups=('lxqt')
-      depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
-      makedepends=('git' 'cmake>=2.6')
-      provides=($_pkgname)
-      conflicts=($_pkgname)
-      source=("git://github.com/lxde/$_pkgname.git")
-      sha256sums=('SKIP')
-      _gitname=$_pkgname
-              
-      pkgver() {
-      cd "$srcdir/$_gitname"
-      printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-      }
-              
-      build() {
-      cd "$srcdir/$_gitname"
-      mkdir -p build
-      cd build
-      cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-      make
-      }
-              
-      package() {
-      cd "$srcdir/$_gitname"
-      cd build
-      make DESTDIR="$pkgdir" install
-      }
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+        # Current Maintainer: Troy Will <troydwill@gmail.com>
+        
+        _pkgname=liblxqt
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        pkgver=0.5
+        pkgrel=1
+        pkgdesc="Common base library for LXQt components."
+        arch=('i686' 'x86_64')
+        url="http://www.lxde.org"
+        license=('GPL2')
+        groups=('lxqt')
+        depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
+        makedepends=('git' 'cmake>=2.6')
+        provides=($_pkgname)
+        conflicts=($_pkgname)
+        source=("git://github.com/lxde/$_pkgname.git")
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
+        
+        pkgver() {
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+        }
+        
+        build() {
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
+        }
+        
+        package() {
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
+        }
       #+END_SRC
    3. [ ] build [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
       #+BEGIN_SRC sh :tangle liblxqt-mount/PKGBUILD :padline no
@@ -154,17 +154,17 @@
         }
         
         build() {
-                cd "$srcdir/$_gitname"
-                mkdir -p build
-                cd build
-                cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-                make
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
         }
         
         package() {
-                cd "$srcdir/$_gitname"
-                cd build
-                make DESTDIR="$pkgdir" install
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
         }
       #+END_SRC
    4. [ ] build [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
@@ -301,7 +301,7 @@
       #+BEGIN_SRC sh :tangle lxqt-panel/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
-             
+        
         _pkgname=lxqt-panel
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
@@ -364,24 +364,23 @@
         _gitname=$_pkgname
         
         pkgver() {
-                cd "$srcdir/$_gitname"
-                printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
         }
         
         build() {
-                cd "$srcdir/$_gitname"
-                mkdir -p build
-                cd build
-                cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-                make
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
         }
         
         package() {
-                cd "$srcdir/$_gitname"
-                cd build
-                make DESTDIR="$pkgdir" install
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
         }
-        
       #+END_SRC
    3. [ ] build lxqt-session
       #+BEGIN_SRC sh :tangle lxqt-session/PKGBUILD :padline no
@@ -448,30 +447,29 @@
         _gitname=$_pkgname
         
         pkgver() {
-                cd "$srcdir/$_gitname"
-                printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+            cd "$srcdir/$_gitname"
+            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
         }
         
         
         build() {
-                cd "$srcdir/$_gitname"
-                mkdir -p build
-                cd build
-                cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-                make
+            cd "$srcdir/$_gitname"
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            make
         }
         
         package() {
-                cd "$srcdir/$_gitname"
-                cd build
-                make DESTDIR="$pkgdir" install
+            cd "$srcdir/$_gitname"
+            cd build
+            make DESTDIR="$pkgdir" install
         }
-        
       #+END_SRC
    5. [ ] build lxqt-qtplugin
       #+BEGIN_SRC sh :tangle lxqt-qtplugin/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-                
+        
         _pkgname=lxqt-qtplugin
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
@@ -509,7 +507,6 @@
             cd build
             make DESTDIR="$pkgdir" install
         }
-        
       #+END_SRC
    6. [ ] build lxqt-appswitcher
       #+BEGIN_SRC sh :tangle lxqt-appswitcher/PKGBUILD :padline no
@@ -592,7 +589,6 @@
             cd build
             make DESTDIR="$pkgdir" install
         }
-        
       #+END_SRC
    8. [ ] build lxqt-openssh-askpass
       #+BEGIN_SRC sh :tangle lxqt-openssh-askpass/PKGBUILD :padline no
@@ -680,7 +676,7 @@
    10. [ ] build lxqt-powermanagement
        #+BEGIN_SRC sh :tangle lxqt-powermanagement/PKGBUILD :padline no
          # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        
+         
          _pkgname=lxqt-powermanagement
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
@@ -698,12 +694,12 @@
          source=("git://github.com/lxde/$_pkgname.git")
          sha256sums=('SKIP')
          _gitname=$_pkgname
-        
+         
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-        
+         
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
@@ -711,7 +707,7 @@
              cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
              make
          }
-        
+         
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -758,7 +754,6 @@
              cd build
              make DESTDIR="$pkgdir" install
          }
-         
        #+END_SRC
    12. [ ] build lxqt-config
        #+BEGIN_SRC sh :tangle lxqt-config/PKGBUILD :padline no
@@ -800,7 +795,6 @@
              cd build
              make DESTDIR="$pkgdir" install
          }
-                
        #+END_SRC
    13. [ ] build lxinput-qt
        #+BEGIN_SRC sh :tangle lxinput-qt/PKGBUILD :padline no
@@ -838,9 +832,9 @@
          }
          
          package() {
-                 cd "$srcdir/$_gitname"
-                 cd build
-                 make DESTDIR="$pkgdir" install
+             cd "$srcdir/$_gitname"
+             cd build
+             make DESTDIR="$pkgdir" install
          }
        #+END_SRC
    14. [ ] build lxqt-config-randr
@@ -926,7 +920,6 @@
              cd build
              make DESTDIR="$pkgdir" install
          }
-         
        #+END_SRC
        #+BEGIN_SRC sh :tangle obconf-qt/obconf-qt.install :padline no
          post_install() {
@@ -935,17 +928,17 @@
          }
          
          post_upgrade() {
-           post_install
+             post_install
          }
          
          post_remove() {
-           post_install
+             post_install
          }
        #+END_SRC
    16. [ ] build compton-conf
        #+BEGIN_SRC sh :tangle compton-conf/PKGBUILD :padline no
          # Maintainer: Troy Will <troydwill@gmail.com>
-                  
+         
          _pkgname=compton-conf
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
@@ -1024,7 +1017,6 @@
             cd build
             make DESTDIR="$pkgdir" install
         }
-        
       #+END_SRC
    2. [ ] build lxmenu-data
       #+BEGIN_SRC sh

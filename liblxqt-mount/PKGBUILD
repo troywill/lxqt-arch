@@ -24,15 +24,15 @@ pkgver() {
 }
 
 build() {
-        cd "$srcdir/$_gitname"
-        mkdir -p build
-        cd build
-        cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-        make
+    cd "$srcdir/$_gitname"
+    mkdir -p build
+    cd build
+    cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+    make
 }
 
 package() {
-        cd "$srcdir/$_gitname"
-        cd build
-        make DESTDIR="$pkgdir" install
+    cd "$srcdir/$_gitname"
+    cd build
+    make DESTDIR="$pkgdir" install
 }

@@ -32,7 +32,7 @@ build() {
 }
 
 package() {
-        cd "$srcdir/$_gitname"
-        cd build
-        make DESTDIR="$pkgdir" install
+    cd "$srcdir/$_gitname"
+    cd build
+    make DESTDIR="$pkgdir" install
 }

@@ -1,6 +1,6 @@
 # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 # Current Maintainer: Troy Will <troydwill@gmail.com>
-     
+
 _pkgname=lxqt-panel
 # pkgname=$_pkgname-git
 pkgname=$_pkgname

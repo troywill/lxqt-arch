@@ -1,5 +1,5 @@
 # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        
+
 _pkgname=lxqt-qtplugin
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
