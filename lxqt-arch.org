@@ -27,7 +27,7 @@
   | 216 | lxqt-config          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config][#lxqt-config]]          | [[https://github.com/lxde/lxqt-config][lxde/lxqt-config]]          | [[https://aur.archlinux.org/packages/lxqt-config-git/][lxqt-config-git]]          |
   |  53 | lxinput-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxinput-qt][#lxinput-qt]]           | [[https://github.com/lxde/lxinput-qt][lxde/lxinput-qt]]           | [[https://aur.archlinux.org/packages/lxinput-qt-git/][1]] [[https://gist.github.com/Adys/7130117][2]]                      |
   |   3 | lxqt-config-randr    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config-randr][#lxqt-config-randr]]    | [[https://github.com/lxde/lxqt-config-randr][lxde/lxqt-config-randr]]    | [[https://aur.archlinux.org/packages/lxrandr-qt-git/][lxrandr-qt-git]]           |
-  |     | obconf-qt            |                       |                           |                          |
+  | tdw | obconf-qt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#obconf-qt][#obconf-qt]]            | [[https://github.com/lxde/obconf-qt][lxde/obconf-qt]]            | [[https://aur.archlinux.org/packages/obconf-qt-git/][obconf-qt-git]]            |
   |     | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]]         | [[https://github.com/lxde/compton-conf][compton-conf]]              |                          |
   |     | lxqt-about           |                       |                           |                          |
   |     | lxqt-lightdm-greeter |                       |                           |                          |
@@ -42,89 +42,89 @@
    1. [ ] build [[https://github.com/lxde/libqtxdg][libqtxdg]] 
       - Library providing freedesktop.org specs implementations for Qt.
       #+BEGIN_SRC sh :tangle libqtxdg/PKGBUILD
-        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Current Maintainer: Troy Will <troydwill@gmail.com>
+      # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+      # Current Maintainer: Troy Will <troydwill@gmail.com>
               
-        _pkgname=libqtxdg
-        # pkgname=$_pkgname-git
-        pkgname=$_pkgname
-        pkgver=0.5
-        pkgrel=2
-        pkgdesc="Library providing freedesktop.org specs implementations for Qt."
-        arch=('i686' 'x86_64')
-        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
-        license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>=4.6')
-        makedepends=('git' 'cmake>=2.6')
-        provides=("$_pkgname")
-        conflicts=("$_pkgname" "razor-qt")
-        source=("git://github.com/lxde/$_pkgname.git")
-        # Because the source is not static, skip Git checksum:        
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
+      _pkgname=libqtxdg
+      # pkgname=$_pkgname-git
+      pkgname=$_pkgname
+      pkgver=0.5
+      pkgrel=2
+      pkgdesc="Library providing freedesktop.org specs implementations for Qt."
+      arch=('i686' 'x86_64')
+      url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
+      license=('GPL2')
+      groups=('lxqt')
+      depends=('qt4>=4.6')
+      makedepends=('git' 'cmake>=2.6')
+      provides=("$_pkgname")
+      conflicts=("$_pkgname" "razor-qt")
+      source=("git://github.com/lxde/$_pkgname.git")
+      # Because the source is not static, skip Git checksum:        
+      sha256sums=('SKIP')
+      _gitname=$_pkgname
               
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
+      pkgver() {
+      cd "$srcdir/$_gitname"
+      printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+      }
               
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-            make
-        }
+      build() {
+      cd "$srcdir/$_gitname"
+      mkdir -p build
+      cd build
+      cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+      make
+      }
               
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+      package() {
+      cd "$srcdir/$_gitname"
+      cd build
+      make DESTDIR="$pkgdir" install
+      }
       #+END_SRC
    2. [ ] build [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
       #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
-        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Current Maintainer: Troy Will <troydwill@gmail.com>
+      # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+      # Current Maintainer: Troy Will <troydwill@gmail.com>
               
-        _pkgname=liblxqt
-        # pkgname=$_pkgname-git
-        pkgname=$_pkgname
-        pkgver=0.5
-        pkgrel=1
-        pkgdesc="Common base library for LXQt components."
-        arch=('i686' 'x86_64')
-        url="http://www.lxde.org"
-        license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
-        makedepends=('git' 'cmake>=2.6')
-        provides=($_pkgname)
-        conflicts=($_pkgname)
-        source=("git://github.com/lxde/$_pkgname.git")
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
+      _pkgname=liblxqt
+      # pkgname=$_pkgname-git
+      pkgname=$_pkgname
+      pkgver=0.5
+      pkgrel=1
+      pkgdesc="Common base library for LXQt components."
+      arch=('i686' 'x86_64')
+      url="http://www.lxde.org"
+      license=('GPL2')
+      groups=('lxqt')
+      depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
+      makedepends=('git' 'cmake>=2.6')
+      provides=($_pkgname)
+      conflicts=($_pkgname)
+      source=("git://github.com/lxde/$_pkgname.git")
+      sha256sums=('SKIP')
+      _gitname=$_pkgname
               
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
+      pkgver() {
+      cd "$srcdir/$_gitname"
+      printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+      }
               
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
-            make
-        }
+      build() {
+      cd "$srcdir/$_gitname"
+      mkdir -p build
+      cd build
+      cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+      make
+      }
               
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+      package() {
+      cd "$srcdir/$_gitname"
+      cd build
+      make DESTDIR="$pkgdir" install
+      }
       #+END_SRC
    3. [ ] build [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
       #+BEGIN_SRC sh :tangle liblxqt-mount/PKGBUILD :padline no
@@ -885,7 +885,63 @@
              make DESTDIR="$pkgdir" install
          }
        #+END_SRC
-
+   15. [ ] build obconf-qt
+       #+BEGIN_SRC sh :tangle obconf-qt/PKGBUILD :padline no
+         _pkgname=obconf-qt-git
+         # pkgname=$_pkgname-git
+         pkgname=$_pkgname
+         pkgver=0.5
+         pkgrel=1
+         pkgdesc="Qt port of openbox configuration tool ObConf"
+         arch=('i686' 'x86_64')
+         url="http://www.lxde.org"
+         license=('GPL2')
+         groups=('lxqt')
+         depends=('qt4>=4.6' 'openbox')
+         # depends=('openbox' 'qt4' 'desktop-file-utils')
+         makedepends=('git' 'cmake>=2.6')
+         provides=($_pkgname)
+         conflicts=($_pkgname)
+         install=${pkgname}.install
+         source=("git://github.com/lxde/$_pkgname.git")
+         # source=("obconf-qt::git://lxde.git.sourceforge.net/gitroot/lxde/obconf-qt")
+         sha256sums=('SKIP')
+         _gitname=$_pkgname
+         
+         pkgver() {
+             cd "$srcdir/$_gitname"
+             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+         }
+         
+         build() {
+             cd "$srcdir/$_gitname"
+             mkdir -p build
+             cd build
+             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             make
+         }
+         
+         package() {
+             cd "$srcdir/$_gitname"
+             cd build
+             make DESTDIR="$pkgdir" install
+         }
+         
+       #+END_SRC
+       #+BEGIN_SRC sh :tangle obconf-qt/obconf-qt.install :padline no
+         post_install() {
+             update-desktop-database -q
+             update-mime-database /usr/share/mime &> /dev/null
+         }
+         
+         post_upgrade() {
+           post_install
+         }
+         
+         post_remove() {
+           post_install
+         }
+       #+END_SRC
 3. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Install_data_files][Install data files]]
    1. [ ] build lxqt-common
       #+BEGIN_SRC sh :tangle lxqt-common/PKGBUILD :padline no
