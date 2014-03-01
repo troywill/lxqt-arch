@@ -1,21 +1,19 @@
-_pkgname=obconf-qt
-# pkgname=$_pkgname-git
-pkgname=$_pkgname
+# Maintainer: Troy Will <troydwill@gmail.com>
+         
+_pkgname=compton-conf
+pkgname=$_pkgname-git
 pkgver=0.5
 pkgrel=1
-pkgdesc="Qt port of openbox configuration tool ObConf"
+pkgdesc="Package description here."
 arch=('i686' 'x86_64')
-url="http://www.lxde.org"
+url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
 license=('GPL2')
-groups=('lxqt')
-depends=('qt4>=4.6' 'openbox')
-# depends=('openbox' 'qt4' 'desktop-file-utils')
+depends=('qt4>=4.6' 'libconfig')
 makedepends=('git' 'cmake>=2.6')
-provides=($_pkgname)
-conflicts=($_pkgname)
-install=${pkgname}.install
+provides=("$_pkgname")
+conflicts=("$_pkgname")
 source=("git://github.com/lxde/$_pkgname.git")
-# source=("obconf-qt::git://lxde.git.sourceforge.net/gitroot/lxde/obconf-qt")
+# Because the source is not static, skip Git checksum:        
 sha256sums=('SKIP')
 _gitname=$_pkgname
 
