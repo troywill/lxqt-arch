@@ -10,6 +10,6 @@ copy "PKGBUILD", "PKGBUILD.bak" or die "Unable to copy: $!";
 
 my $command = "makepkg --syncdeps";
 print "=> $command\n"; system($command);
-move "PKGBUILD.bak", "PKGBUILD" or die "Unable to move: $!";
+copy "PKGBUILD.bak", "PKGBUILD" or die "Unable to move: $!";
 
 chomp(my $package_built = `find *.xz`);
