@@ -14,7 +14,7 @@
   | rel | Name                 | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]         | [[https://github.com/lxde][Git Repo]]                  | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                      |
   |-----+----------------------+-----------------------+---------------------------+--------------------------|
   | 801 | lxqt-panel           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]]           | [[https://github.com/lxde/lxqt-panel][lxde/lxqt-panel]]           | [[https://aur.archlinux.org/packages/lxqt-panel-git][lxqt-panel-git]]           |
-  | 206 | pcmanfm-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]]           | [[https://github.com/lxde/pcmanfm-qt][lxde/pcmanfm-qt]]           | [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]]           |
+  | 214 | pcmanfm-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]]           | [[https://github.com/lxde/pcmanfm-qt][lxde/pcmanfm-qt]]           | [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]]           |
   | 198 | lxqt-session         |                       | [[https://github.com/lxde/lxsession][lxde/lxsession]]            |                          |
   | 113 | lxqt-runner          |                       | [[https://github.com/lxde/lxqt-runner][lxde/lxqt-runner]]          |                          |
   |   1 | lxqt-qtplugin        | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-qtplugin][#lxqt-qtplugin]]        | [[https://github.com/lxde/lxqt-qtplugin][lxde/lxqt-qtplugin]]        | n/a                      |

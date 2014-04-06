@@ -3,7 +3,7 @@
 _pkgname=lxinput-qt
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
-pkgver=0.5
+pkgver=0.5.r61.1.af35900
 pkgrel=1
 pkgdesc="LXQt keyboard and mouse configuration."
 arch=('i686' 'x86_64')
