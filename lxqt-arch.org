@@ -3,39 +3,39 @@
   | rel | Name               | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]       | [[https://github.com/lxde][Git Repo]]                | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                    |
   |-----+--------------------+---------------------+-------------------------+------------------------|
   | 150 | libqtxdg           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           |
-  | 254 | liblxqt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][lxde/liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            |
-  |  39 | liblxqt-mount      | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][lxde/liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |
+  | 255 | liblxqt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][lxde/liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            |
+  |  40 | liblxqt-mount      | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][lxde/liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |
   | 109 | lxqt-globalkeys    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxde/lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    |
-  |  68 | lxqt-notificationd | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]] | [[https://github.com/lxde/lxqt-notificationd][lxde/lxqt-notificationd]] | [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] |
+  |  73 | lxqt-notificationd | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]] | [[https://github.com/lxde/lxqt-notificationd][lxde/lxqt-notificationd]] | [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] |
   |  22 | libsysstat         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libsysstat][#libsysstat]]         | [[https://github.com/lxde/libsysstat][lxde/libsysstat]]         | [[https://aur.archlinux.org/packages/libsysstat-git/][libsysstat-git]]         |
   |     | menu-cache         |                     |                         |                        |
   |     | libfm              |                     |                         |                        |
   #+NAME: major-components
   | rel | Name                 | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]         | [[https://github.com/lxde][Git Repo]]                  | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                      |
   |-----+----------------------+-----------------------+---------------------------+--------------------------|
-  | 801 | lxqt-panel           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]]           | [[https://github.com/lxde/lxqt-panel][lxde/lxqt-panel]]           | [[https://aur.archlinux.org/packages/lxqt-panel-git][lxqt-panel-git]]           |
+  | 803 | lxqt-panel           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-panel][#lxqt-panel]]           | [[https://github.com/lxde/lxqt-panel][lxde/lxqt-panel]]           | [[https://aur.archlinux.org/packages/lxqt-panel-git][lxqt-panel-git]]           |
   | 214 | pcmanfm-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#pcmanfm-qt][#pcmanfm-qt]]           | [[https://github.com/lxde/pcmanfm-qt][lxde/pcmanfm-qt]]           | [[https://aur.archlinux.org/packages/pcmanfm-qt-git/][pcmanfm-qt-git]]           |
-  | 198 | lxqt-session         |                       | [[https://github.com/lxde/lxsession][lxde/lxsession]]            |                          |
+  | 200 | lxqt-session         |                       | [[https://github.com/lxde/lxsession][lxde/lxsession]]            |                          |
   | 113 | lxqt-runner          |                       | [[https://github.com/lxde/lxqt-runner][lxde/lxqt-runner]]          |                          |
-  |   1 | lxqt-qtplugin        | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-qtplugin][#lxqt-qtplugin]]        | [[https://github.com/lxde/lxqt-qtplugin][lxde/lxqt-qtplugin]]        | n/a                      |
+  |   2 | lxqt-qtplugin        | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-qtplugin][#lxqt-qtplugin]]        | [[https://github.com/lxde/lxqt-qtplugin][lxde/lxqt-qtplugin]]        | n/a                      |
   |  40 | lxqt-appswitcher     | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-appswitcher][#lxqt-appswitcher]]     | [[https://github.com/lxde/lxqt-appswitcher][lxde/lxqt-appswitcher]]     | [[https://aur.archlinux.org/packages/lxqt-appswitcher-git/][lxqt-appswitcher-git]]     |
   |  14 | lxqt-policykit       | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-policykit][#lxqt-policykit]]       | [[https://github.com/lxde/lxqt-policykit][lxde/lxqt-policykit]]       | [[https://aur.archlinux.org/packages/lxqt-policykit-git/][lxqt-policykit-git]]       |
   |  11 | lxqt-openssh-askpass | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-openssh-askpass][#lxqt-openssh-askpass]] | [[https://github.com/lxde/lxqt-openssh-askpass][lxde/lxqt-openssh-askpass]] | [[https://aur.archlinux.org/packages/lxqt-openssh-askpass-git/][lxqt-openssh-askpass-git]] |
   |  81 | lxqt-power           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-power][#lxqt-power]]           | [[https://github.com/lxde/lxqt-power][lxde/lxqt-power]]           | [[https://aur.archlinux.org/packages/lxqt-power-git/][lxqt-power-git]]           |
-  |  68 | lxqt-powermanagement | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-powermanagement][#lxqt-powermanagement]] | [[https://github.com/lxde/lxqt-powermanagement][lxde/lxqt-powermanagement]] | [[https://aur.archlinux.org/packages/lxqt-powermanagement-git/][lxqt-powermanagement-git]] |
+  |  86 | lxqt-powermanagement | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-powermanagement][#lxqt-powermanagement]] | [[https://github.com/lxde/lxqt-powermanagement][lxde/lxqt-powermanagement]] | [[https://aur.archlinux.org/packages/lxqt-powermanagement-git/][lxqt-powermanagement-git]] |
   |  80 | lximage-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lximage-qt][#lximage-qt]]           | [[https://github.com/lxde/lximage-qt][lxde/lximage-qt]]           | [[https://aur.archlinux.org/packages/lximage-qt-git/][lximage-qt-git]]           |
-  | 216 | lxqt-config          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config][#lxqt-config]]          | [[https://github.com/lxde/lxqt-config][lxde/lxqt-config]]          | [[https://aur.archlinux.org/packages/lxqt-config-git/][lxqt-config-git]]          |
+  | 224 | lxqt-config          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config][#lxqt-config]]          | [[https://github.com/lxde/lxqt-config][lxde/lxqt-config]]          | [[https://aur.archlinux.org/packages/lxqt-config-git/][lxqt-config-git]]          |
   |  54 | lxinput-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxinput-qt][#lxinput-qt]]           | [[https://github.com/lxde/lxinput-qt][lxde/lxinput-qt]]           | [[https://aur.archlinux.org/packages/lxinput-qt-git/][1]] [[https://gist.github.com/Adys/7130117][2]]                      |
   |  41 | lxqt-config-randr    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config-randr][#lxqt-config-randr]]    | [[https://github.com/lxde/lxqt-config-randr][lxde/lxqt-config-randr]]    | [[https://aur.archlinux.org/packages/lxrandr-qt-git/][lxrandr-qt-git]]           |
   |  53 | obconf-qt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#obconf-qt][#obconf-qt]]            | [[https://github.com/lxde/obconf-qt][lxde/obconf-qt]]            | [[https://aur.archlinux.org/packages/obconf-qt-git/][obconf-qt-git]]            |
   |   6 | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]]         | [[https://github.com/lxde/compton-conf][compton-conf]]              | n/a                      |
-  |  17 | lxqt-about           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-about][#lxqt-about]]           | [[https://github.com/lxde/lxqt-about][lxde/lxqt-about]]           | [[https://aur.archlinux.org/packages/lxqt-about-git/][lxqt-about-git]]           |
+  |  18 | lxqt-about           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-about][#lxqt-about]]           | [[https://github.com/lxde/lxqt-about][lxde/lxqt-about]]           | [[https://aur.archlinux.org/packages/lxqt-about-git/][lxqt-about-git]]           |
   |  56 | lxqt-lightdm-greeter | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-lightdm-greeter][#lxqt-lightdm-greeter]] | [[https://github.com/lxde/lxqt-lightdm-greeter][lxde/lxqt-lightdm-greeter]] | [[https://aur.archlinux.org/packages/lxqt-lightdm-greeter-git][lxqt-lightdm-greeter-git]] |
 
   #+NAME: data-files
   | rel | Name        | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]] | [[https://github.com/lxde][Git Repo]] | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]] |
   |-----+-------------+---------------+----------+-----|
-  |  15 | lxqt-common |               |          |     |
+  |  17 | lxqt-common |               |          |     |
   |     |             |               |          |     |
   
 * Step by step package build
@@ -1182,3 +1182,67 @@
         make DESTDIR="$pkgdir" install
     }
   #+END_SRC
+* Diffs
+< lxqt-session-0.5.r202.1.70b1d91-1-i686.pkg.tar.xz
+---
+> lxqt-session-0.5.r200.1.3bd27ea-1-i686.pkg.tar.xz
+16c16
+< lxqt-powermanagement-0.5.r88.1.5a66b76-1-i686.pkg.tar.xz
+---
+> lxqt-powermanagement-0.5.r87.1.a3082fc-1-i686.pkg.tar.xz
+18c18
+< lxqt-config-0.5.r240.1.b4dc70c-1-i686.pkg.tar.xz
+---
+> lxqt-config-0.5.r232.1.c3ccf81-1-i686.pkg.tar.xz
+1,14c1,14
+< libqtxdg-0.5.r152.2.ad09f02-1-i686.pkg.tar.xz
+< liblxqt-0.5.r258.1.ac3c0c7-1-i686.pkg.tar.xz
+< liblxqt-mount-0.5.r41.1.83d791a-1-i686.pkg.tar.xz
+< lxqt-globalkeys-0.5.r112.2.4e77609-1-i686.pkg.tar.xz
+< lxqt-notificationd-0.5.r73.1.efad03b-1-i686.pkg.tar.xz
+< libsysstat-0.5.r24.1.574dee2-1-i686.pkg.tar.xz
+< lxqt-panel-0.5.r811.1.60b5f35-1-i686.pkg.tar.xz
+< pcmanfm-qt-0.1.r216.1.f993698-1-i686.pkg.tar.xz
+< lxqt-session-0.5.r204.1.212fbbd-1-i686.pkg.tar.xz
+< lxqt-runner-0.5.r116.1.0147356-1-i686.pkg.tar.xz
+< lxqt-qtplugin-0.5.r4.1.f1bcaeb-1-i686.pkg.tar.xz
+< lxqt-appswitcher-0.5.r42.1.23cd827-1-i686.pkg.tar.xz
+< lxqt-policykit-0.5.r15.1.c652bc9-1-i686.pkg.tar.xz
+< lxqt-openssh-askpass-0.5.r12.1.f08cbd3-1-i686.pkg.tar.xz
+---
+> libqtxdg-0.5.r150.2.48e366e-1-i686.pkg.tar.xz
+> liblxqt-0.5.r255.1.eb37e3a-1-i686.pkg.tar.xz
+> liblxqt-mount-0.5.r40.1.94b91e5-1-i686.pkg.tar.xz
+> lxqt-globalkeys-0.5.r110.2.8ac772e-1-i686.pkg.tar.xz
+> lxqt-notificationd-0.5.r70.1.206478f-1-i686.pkg.tar.xz
+> libsysstat-0.5.r22.1.b3806d8-1-i686.pkg.tar.xz
+> lxqt-panel-0.5.r809.1.3ceb70f-1-i686.pkg.tar.xz
+> pcmanfm-qt-0.1.r215.1.bb72e3f-1-i686.pkg.tar.xz
+> lxqt-session-0.5.r202.1.70b1d91-1-i686.pkg.tar.xz
+> lxqt-runner-0.5.r113.1.93ecbca-1-i686.pkg.tar.xz
+> lxqt-qtplugin-0.5.r2.1.4592789-1-i686.pkg.tar.xz
+> lxqt-appswitcher-0.5.r40.1.bf6ac72-1-i686.pkg.tar.xz
+> lxqt-policykit-0.5.r14.1.db4913d-1-i686.pkg.tar.xz
+> lxqt-openssh-askpass-0.5.r11.1.9191d8c-1-i686.pkg.tar.xz
+16,18c16,18
+< lxqt-powermanagement-0.5.r92.1.055bb00-1-i686.pkg.tar.xz
+< lximage-qt-0.5.r81.1.b221b96-1-i686.pkg.tar.xz
+< lxqt-config-0.5.r242.1.40126e0-1-i686.pkg.tar.xz
+---
+> lxqt-powermanagement-0.5.r88.1.5a66b76-1-i686.pkg.tar.xz
+> lximage-qt-0.5.r80.1.acd993d-1-i686.pkg.tar.xz
+> lxqt-config-0.5.r240.1.b4dc70c-1-i686.pkg.tar.xz
+20,21c20,21
+< lxqt-config-randr-0.5.r44.1.76d8063-1-i686.pkg.tar.xz
+< obconf-qt-0.5.r54.1.2dc7275-1-i686.pkg.tar.xz
+---
+> lxqt-config-randr-0.5.r42.1.7d3ab3c-1-i686.pkg.tar.xz
+> obconf-qt-0.5.r53.1.b594efd-1-i686.pkg.tar.xz
+23c23
+< lxqt-about-0.5.r21.1.837761d-1-i686.pkg.tar.xz
+---
+> lxqt-about-0.5.r18.1.93971e6-1-i686.pkg.tar.xz
+25c25
+< lxqt-common-0.5.r20.1.83965da-1-i686.pkg.tar.xz
+---
+> lxqt-common-0.5.r17.1.48378ab-1-i686.pkg.tar.xz

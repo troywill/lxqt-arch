@@ -3,7 +3,7 @@
 _pkgname=lxinput-qt
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
-pkgver=0.5.r61.1.af35900
+pkgver=0.5
 pkgrel=1
 pkgdesc="LXQt keyboard and mouse configuration."
 arch=('i686' 'x86_64')
@@ -25,6 +25,7 @@ pkgver() {
 
 build() {
     cd "$srcdir/$_gitname"
+    rm -v ./src/translations/lxqt-config-input_pt_BR.ts
     mkdir -p build
     cd build
     cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
