@@ -1,13 +1,16 @@
 _pkgname=obconf-qt
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
-pkgver=0.5
+ver_major=0
+ver_minor=7
+ver_patch=0
+pkgver=$ver_major.$ver_minor.$ver_patch
 pkgrel=1
 pkgdesc="Qt port of openbox configuration tool ObConf"
 arch=('i686' 'x86_64')
 url="http://www.lxde.org"
 license=('GPL2')
-groups=('lxqt')
+groups=('lxqt-components')
 depends=('qt4>=4.6' 'openbox')
 # depends=('openbox' 'qt4' 'desktop-file-utils')
 makedepends=('git' 'cmake>=2.6')
@@ -28,7 +31,7 @@ build() {
     cd "$srcdir/$_gitname"
     mkdir -p build
     cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
     make
 }
 

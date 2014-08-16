@@ -130,7 +130,6 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            # cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
@@ -175,7 +174,6 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            # cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
@@ -268,7 +266,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=true ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -314,7 +312,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=true ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -333,7 +331,10 @@
         _pkgname=lxqt-panel
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="Package description here."
         arch=('i686' 'x86_64')
@@ -358,7 +359,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -376,7 +377,10 @@
         _pkgname=pcmanfm-qt
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.1
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="The LXQt file manager, Qt port of PCManFM"
         arch=('i686' 'x86_64')
@@ -400,7 +404,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -418,7 +422,10 @@
         _pkgname=lxqt-session
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="LXQt session"
         arch=('i686' 'x86_64')
@@ -442,7 +449,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -459,7 +466,10 @@
         _pkgname=lxqt-runner
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="The LXQt application launcher"
         arch=('i686' 'x86_64')
@@ -484,7 +494,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -501,7 +511,10 @@
         _pkgname=lxqt-qtplugin
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="LxQt platform integration plugin for Qt 4 (let all Qt programs apply LxQt settings)"
         arch=('i686' 'x86_64')
@@ -526,7 +539,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -543,7 +556,10 @@
         _pkgname=lxqt-appswitcher
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="The LXQt application switcher"
         arch=('i686' 'x86_64')
@@ -567,7 +583,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -584,7 +600,10 @@
         _pkgname=lxqt-policykit
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="The LXQt policykit authentication agent"
         arch=('i686' 'x86_64')
@@ -608,7 +627,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -625,7 +644,10 @@
         _pkgname=lxqt-openssh-askpass
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="LXQt openssh password prompt"
         arch=('i686' 'x86_64')
@@ -649,7 +671,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -666,7 +688,10 @@
         _pkgname=lxqt-power
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="LXQt poweroff/hibernate utility"
         arch=('i686' 'x86_64')
@@ -691,7 +716,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -704,11 +729,14 @@
    10. [ ] build lxqt-powermanagement
        #+BEGIN_SRC sh :tangle lxqt-powermanagement/PKGBUILD :padline no
          # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-         
+
          _pkgname=lxqt-powermanagement
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.5
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="LXQt power management daemon"
          arch=('i686' 'x86_64')
@@ -722,20 +750,20 @@
          source=("git://github.com/lxde/$_pkgname.git")
          sha256sums=('SKIP')
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -745,11 +773,14 @@
    11. [ ] build lximage-qt
        #+BEGIN_SRC sh :tangle lximage-qt/PKGBUILD :padline no
          # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-         
+
          _pkgname=lximage-qt
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.5
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="The LXQt image viewer"
          arch=('i686' 'x86_64')
@@ -763,20 +794,20 @@
          source=("git://github.com/lxde/$_pkgname.git")
          sha256sums=('SKIP')
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -786,11 +817,14 @@
    12. [ ] build lxqt-config
        #+BEGIN_SRC sh :tangle lxqt-config/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-         
+
          _pkgname=lxqt-config
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.5
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="LXQt system configuration."
          arch=('i686' 'x86_64')
@@ -804,20 +838,20 @@
          source=("git://github.com/lxde/$_pkgname.git")
          sha256sums=('SKIP')
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -827,11 +861,14 @@
    13. [ ] build lxinput-qt
        #+BEGIN_SRC sh :tangle lxinput-qt/PKGBUILD :padline no
          # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-         
+
          _pkgname=lxinput-qt
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.5
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="LXQt keyboard and mouse configuration."
          arch=('i686' 'x86_64')
@@ -845,20 +882,20 @@
          source=("git://github.com/lxde/$_pkgname.git")
          sha256sums=('SKIP')
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -868,12 +905,15 @@
    14. [ ] build lxqt-config-randr
        #+BEGIN_SRC sh :tangle lxqt-config-randr/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-         
+
          # _pkgname=lxrandr-qt
          _pkgname=lxqt-config-randr
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.5
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="LXQt monitor configuration."
          arch=('i686' 'x86_64')
@@ -887,20 +927,20 @@
          source=("git://github.com/lxde/$_pkgname.git")
          sha256sums=('SKIP')
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -912,7 +952,10 @@
          _pkgname=obconf-qt
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.5
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="Qt port of openbox configuration tool ObConf"
          arch=('i686' 'x86_64')
@@ -929,20 +972,20 @@
          # source=("obconf-qt::git://lxde.git.sourceforge.net/gitroot/lxde/obconf-qt")
          sha256sums=('SKIP')
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -954,11 +997,11 @@
              update-desktop-database -q
              update-mime-database /usr/share/mime &> /dev/null
          }
-         
+
          post_upgrade() {
              post_install
          }
-         
+
          post_remove() {
              post_install
          }
@@ -966,11 +1009,14 @@
    16. [ ] build compton-conf
        #+BEGIN_SRC sh :tangle compton-conf/PKGBUILD :padline no
          # Maintainer: Troy Will <troydwill@gmail.com>
-         
+
          _pkgname=compton-conf
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.1
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="Package description here."
          arch=('i686' 'x86_64')
@@ -985,20 +1031,20 @@
          # Because the source is not static, skip Git checksum:        
          sha256sums=('SKIP')
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -1008,11 +1054,14 @@
    17. [ ] build lxqt-about
        #+BEGIN_SRC sh :tangle lxqt-about/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-         
+
          _pkgname=lxqt-about
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.5
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="LXQt about dialog."
          arch=('i686' 'x86_64')
@@ -1026,20 +1075,20 @@
          source=("git://github.com/lxde/$_pkgname.git")
          sha256sums=('SKIP')
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -1049,11 +1098,14 @@
    18. [ ] build lxqt-lightdm-greeter
        #+BEGIN_SRC sh :tangle lxqt-lightdm-greeter/PKGBUILD :padline no
          # Original maintainer: faerbit <faerbit at gmail dot com>
-         
+
          _pkgname=lxqt-lightdm-greeter
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
-         pkgver=0.5
+         ver_major=0
+         ver_minor=7
+         ver_patch=0
+         pkgver=$ver_major.$ver_minor.$ver_patch
          pkgrel=1
          pkgdesc="A greeter for lightdm"
          arch=('i686' 'x86_64')
@@ -1070,20 +1122,20 @@
                    'cbc5f1ce7e62964fa38b04951bdc3770330dcc68')
          install=lxqt-lightdm-greeter.install
          _gitname=$_pkgname
-         
+
          pkgver() {
              cd "$srcdir/$_gitname"
              printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
          }
-         
+
          build() {
              cd "$srcdir/$_gitname"
              mkdir -p build
              cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
              make
          }
-         
+
          package() {
              cd "$srcdir/$_gitname"
              cd build
@@ -1118,8 +1170,8 @@
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
         ver_major=0
-        ver_minor=5
-        ver_patch=3
+        ver_minor=7
+        ver_patch=0
         pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="Common data to run a LXQt session."
@@ -1133,20 +1185,20 @@
         source=("git://github.com/lxde/$_pkgname.git")
         sha256sums=('SKIP')
         _gitname=$_pkgname
-        
+
         pkgver() {
             cd "$srcdir/$_gitname"
             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
         }
-        
+
         build() {
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
-        
+
         package() {
             cd "$srcdir/$_gitname"
             cd build
@@ -1213,66 +1265,3 @@
     }
   #+END_SRC
 * Diffs
-< lxqt-session-0.5.r202.1.70b1d91-1-i686.pkg.tar.xz
----
-> lxqt-session-0.5.r200.1.3bd27ea-1-i686.pkg.tar.xz
-16c16
-< lxqt-powermanagement-0.5.r88.1.5a66b76-1-i686.pkg.tar.xz
----
-> lxqt-powermanagement-0.5.r87.1.a3082fc-1-i686.pkg.tar.xz
-18c18
-< lxqt-config-0.5.r240.1.b4dc70c-1-i686.pkg.tar.xz
----
-> lxqt-config-0.5.r232.1.c3ccf81-1-i686.pkg.tar.xz
-1,14c1,14
-< libqtxdg-0.5.r152.2.ad09f02-1-i686.pkg.tar.xz
-< liblxqt-0.5.r258.1.ac3c0c7-1-i686.pkg.tar.xz
-< liblxqt-mount-0.5.r41.1.83d791a-1-i686.pkg.tar.xz
-< lxqt-globalkeys-0.5.r112.2.4e77609-1-i686.pkg.tar.xz
-< lxqt-notificationd-0.5.r73.1.efad03b-1-i686.pkg.tar.xz
-< libsysstat-0.5.r24.1.574dee2-1-i686.pkg.tar.xz
-< lxqt-panel-0.5.r811.1.60b5f35-1-i686.pkg.tar.xz
-< pcmanfm-qt-0.1.r216.1.f993698-1-i686.pkg.tar.xz
-< lxqt-session-0.5.r204.1.212fbbd-1-i686.pkg.tar.xz
-< lxqt-runner-0.5.r116.1.0147356-1-i686.pkg.tar.xz
-< lxqt-qtplugin-0.5.r4.1.f1bcaeb-1-i686.pkg.tar.xz
-< lxqt-appswitcher-0.5.r42.1.23cd827-1-i686.pkg.tar.xz
-< lxqt-policykit-0.5.r15.1.c652bc9-1-i686.pkg.tar.xz
-< lxqt-openssh-askpass-0.5.r12.1.f08cbd3-1-i686.pkg.tar.xz
----
-> libqtxdg-0.5.r150.2.48e366e-1-i686.pkg.tar.xz
-> liblxqt-0.5.r255.1.eb37e3a-1-i686.pkg.tar.xz
-> liblxqt-mount-0.5.r40.1.94b91e5-1-i686.pkg.tar.xz
-> lxqt-globalkeys-0.5.r110.2.8ac772e-1-i686.pkg.tar.xz
-> lxqt-notificationd-0.5.r70.1.206478f-1-i686.pkg.tar.xz
-> libsysstat-0.5.r22.1.b3806d8-1-i686.pkg.tar.xz
-> lxqt-panel-0.5.r809.1.3ceb70f-1-i686.pkg.tar.xz
-> pcmanfm-qt-0.1.r215.1.bb72e3f-1-i686.pkg.tar.xz
-> lxqt-session-0.5.r202.1.70b1d91-1-i686.pkg.tar.xz
-> lxqt-runner-0.5.r113.1.93ecbca-1-i686.pkg.tar.xz
-> lxqt-qtplugin-0.5.r2.1.4592789-1-i686.pkg.tar.xz
-> lxqt-appswitcher-0.5.r40.1.bf6ac72-1-i686.pkg.tar.xz
-> lxqt-policykit-0.5.r14.1.db4913d-1-i686.pkg.tar.xz
-> lxqt-openssh-askpass-0.5.r11.1.9191d8c-1-i686.pkg.tar.xz
-16,18c16,18
-< lxqt-powermanagement-0.5.r92.1.055bb00-1-i686.pkg.tar.xz
-< lximage-qt-0.5.r81.1.b221b96-1-i686.pkg.tar.xz
-< lxqt-config-0.5.r242.1.40126e0-1-i686.pkg.tar.xz
----
-> lxqt-powermanagement-0.5.r88.1.5a66b76-1-i686.pkg.tar.xz
-> lximage-qt-0.5.r80.1.acd993d-1-i686.pkg.tar.xz
-> lxqt-config-0.5.r240.1.b4dc70c-1-i686.pkg.tar.xz
-20,21c20,21
-< lxqt-config-randr-0.5.r44.1.76d8063-1-i686.pkg.tar.xz
-< obconf-qt-0.5.r54.1.2dc7275-1-i686.pkg.tar.xz
----
-> lxqt-config-randr-0.5.r42.1.7d3ab3c-1-i686.pkg.tar.xz
-> obconf-qt-0.5.r53.1.b594efd-1-i686.pkg.tar.xz
-23c23
-< lxqt-about-0.5.r21.1.837761d-1-i686.pkg.tar.xz
----
-> lxqt-about-0.5.r18.1.93971e6-1-i686.pkg.tar.xz
-25c25
-< lxqt-common-0.5.r20.1.83965da-1-i686.pkg.tar.xz
----
-> lxqt-common-0.5.r17.1.48378ab-1-i686.pkg.tar.xz

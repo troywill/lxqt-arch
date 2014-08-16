@@ -30,7 +30,6 @@ build() {
     cd "$srcdir/$_gitname"
     mkdir -p build
     cd build
-    # cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
     cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
     make
 }
