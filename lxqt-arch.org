@@ -93,7 +93,7 @@
 	    
 	    ...
 	  - Solution :: install qt5-tools
-   2. [ ] build [[https://github.com/lxde/liblxqt][liblxqt]] 
+   2. [X] build [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
       #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
@@ -148,14 +148,17 @@
         _pkgname=liblxqt-mount
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="LXQt library used to manage removable devices."
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
+        groups=('lxqt-libs')
+        depends=('qt4>=4.6' 'liblxqt>=0.7.0.r295')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
         conflicts=($_pkgname)
@@ -172,7 +175,8 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            # cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
