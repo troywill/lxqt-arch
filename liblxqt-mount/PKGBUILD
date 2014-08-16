@@ -13,7 +13,7 @@ arch=('i686' 'x86_64')
 url="http://www.lxde.org"
 license=('GPL2')
 groups=('lxqt-libs')
-depends=('qt4>=4.6' 'liblxqt>=0.7.0.r295')
+depends=('qt5-base' 'liblxqt>=0.7.0.r295')
 makedepends=('git' 'cmake>=2.6')
 provides=($_pkgname)
 conflicts=($_pkgname)

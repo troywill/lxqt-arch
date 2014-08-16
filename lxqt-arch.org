@@ -1,15 +1,15 @@
 * LXQT Package Tables
   #+NAME: base-libraries
-  | rel | Name               | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]       | [[https://github.com/lxde][Git Repo]]                | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                    | Build Date |
-  |-----+--------------------+---------------------+-------------------------+------------------------+------------|
-  | 192 | libqtxdg           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           | 2014-08-15 |
-  | 295 | liblxqt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][lxde/liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            | 2014-08-15 |
-  |  54 | liblxqt-mount      | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][lxde/liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |            |
-  | 125 | lxqt-globalkeys    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxde/lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    |            |
-  |  82 | lxqt-notificationd | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]] | [[https://github.com/lxde/lxqt-notificationd][lxde/lxqt-notificationd]] | [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] |            |
-  |  28 | libsysstat         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libsysstat][#libsysstat]]         | [[https://github.com/lxde/libsysstat][lxde/libsysstat]]         | [[https://aur.archlinux.org/packages/libsysstat-git/][libsysstat-git]]         |            |
-  |     | menu-cache         |                     |                         |                        |            |
-  |     | libfm              |                     |                         |                        |            |
+  | rel        | Name               | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]       | [[https://github.com/lxde][Git Repo]]                | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                    | Build Date |
+  |------------+--------------------+---------------------+-------------------------+------------------------+------------|
+  | 0.5.3-r192 | libqtxdg           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           | 2014-08-15 |
+  | 0.7.0-r295 | liblxqt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][lxde/liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            | 2014-08-15 |
+  | 0.7.0.r54  | liblxqt-mount      | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][lxde/liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      | 2014-08-15 |
+  | 125        | lxqt-globalkeys    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxde/lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    | 2014-08-15 |
+  | 0.7.0.r82  | lxqt-notificationd | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]] | [[https://github.com/lxde/lxqt-notificationd][lxde/lxqt-notificationd]] | [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] | 2014-08-15 |
+  | 28         | libsysstat         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libsysstat][#libsysstat]]         | [[https://github.com/lxde/libsysstat][lxde/libsysstat]]         | [[https://aur.archlinux.org/packages/libsysstat-git/][libsysstat-git]]         |            |
+  |            | menu-cache         |                     |                         |                        |            |
+  |            | libfm              |                     |                         |                        |            |
   #+NAME: major-components
   | rel        | Name                 | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]         | [[https://github.com/lxde][Git Repo]]                  | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                      | Build Date |
   |------------+----------------------+-----------------------+---------------------------+--------------------------+------------|
@@ -37,7 +37,7 @@
   |       |             |               |          |     |
   
 * Step by step package build
-1. [-]  Build the base libraries
+1. [X]  Build the base libraries
    1. [X] build [[https://github.com/lxde/libqtxdg][libqtxdg]] 
       - Library providing freedesktop.org specs implementations for Qt.
       #+BEGIN_SRC sh :tangle libqtxdg/PKGBUILD
@@ -141,7 +141,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   3. [ ] build [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
+   3. [X] build [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
       #+BEGIN_SRC sh :tangle liblxqt-mount/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
@@ -158,7 +158,7 @@
         url="http://www.lxde.org"
         license=('GPL2')
         groups=('lxqt-libs')
-        depends=('qt4>=4.6' 'liblxqt>=0.7.0.r295')
+        depends=('qt5-base' 'liblxqt>=0.7.0.r295')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
         conflicts=($_pkgname)
@@ -186,7 +186,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   4. [ ] build [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
+   4. [X] build [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
       #+BEGIN_SRC sh :tangle lxqt-globalkeys/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Maintainer: Troy Will <troydwill@gmail.com>
@@ -194,14 +194,17 @@
         _pkgname=lxqt-globalkeys
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
-        pkgrel=2
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
+        pkgrel=1
         pkgdesc="Package description here."
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
         license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
+        groups=('lxqt-libs')
+        depends=('qt5-base' 'liblxqt>=0.5.r253')
         makedepends=('git' 'cmake>=2.6' 'libx11' 'liblxqt>=0.5.r253')
         provides=("$_pkgname")
         conflicts=("$_pkgname" "razor-qt")
@@ -219,7 +222,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
@@ -229,7 +232,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   5. [ ] build lxqt-notificationd
+   5. [X] build lxqt-notificationd
       #+BEGIN_SRC sh :tangle lxqt-notificationd/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
@@ -237,14 +240,17 @@
         _pkgname=lxqt-notificationd
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="Package description here."
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
         license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>=4.6')
+        groups=('lxqt-libs')
+        depends=('qt5-base')
         makedepends=('git' 'cmake>=2.6')
         provides=("$_pkgname")
         conflicts=("$_pkgname")
@@ -262,7 +268,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=true ..
             make
         }
         
@@ -272,7 +278,7 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   6. [ ] build libsysstat
+   6. [X] build libsysstat
       #+BEGIN_SRC sh :tangle libsysstat/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
@@ -280,14 +286,17 @@
         _pkgname=libsysstat
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
-        pkgdesc="Package description here."
+        pkgdesc="Library to query system statistics (net, resource usage, ...)"
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
         license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>4.6')
+        groups=('lxqt-libs')
+        depends=('qt5-base')
         makedepends=('git' 'cmake>=2.6')
         provides=("$_pkgname")
         conflicts=("$_pkgname")
@@ -305,7 +314,7 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=true ..
             make
         }
         
@@ -330,7 +339,7 @@
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('qt4>=4.6' 'libqtxdg>=0.5.r150' 'liblxqt>=0.5.r253' 'lxqt-globalkeys>=0.5.r107' 'liblxqt-mount>=0.5.r37' 'libx11' 'libsysstat>=0.5.r20')
         makedepends=('git' 'cmake>=2.6')
         provides=("$_pkgname")
@@ -373,7 +382,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('qt4>=4.6' 'liblxqt>=0.5.r253' 'menu-cache' 'libfm')
         makedepends=('git' 'cmake>=2.6' 'menu-cache' 'libfm')
         provides=($_pkgname)
@@ -415,7 +424,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('liblxqt>=0.5.r253')
         makedepends=('git' 'cmake')
         provides=($_pkgname)
@@ -456,7 +465,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
         makedepends=('git' 'cmake')
         provides=($_pkgname)
@@ -498,7 +507,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
@@ -540,7 +549,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('qt4>4.6' 'liblxqt>=0.5.r253' 'lxqt-globalkeys>=0.5.r107' 'libx11')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
@@ -581,7 +590,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('qt4>4.6' 'liblxqt>=0.5.r253' 'libqtxdg>=0.5.r150' 'polkit-qt')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
@@ -622,7 +631,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('qt4>4.6' 'liblxqt>=0.5.r253')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
@@ -663,7 +672,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-components')
         depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
         makedepends=('git' 'cmake>=2.6')
         provides=($_pkgname)
@@ -705,7 +714,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('GPL2')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('qt4>=4.6' 'liblxqt>=0.5.r253' 'libxcb')
          makedepends=('git' 'cmake>=2.6')
          provides=($_pkgname)
@@ -746,7 +755,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('GPL2')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('qt4>=4.6' 'pcmanfm-qt>=0.1.r180')
          makedepends=('git' 'cmake>=2.8.3' 'pkg-config')
          provides=($_pkgname)
@@ -787,7 +796,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('GPL2')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('qt4>=4.6')
          makedepends=('git' 'cmake>=2.6')
          provides=($_pkgname)
@@ -828,7 +837,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('GPL2')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('qt4>=4.6')
          makedepends=('git' 'cmake>=2.6')
          provides=($_pkgname)
@@ -870,7 +879,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('GPL2')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('qt4>=4.6')
          makedepends=('git' 'cmake>=2.6')
          provides=($_pkgname)
@@ -909,7 +918,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('GPL2')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('qt4>=4.6' 'openbox')
          # depends=('openbox' 'qt4' 'desktop-file-utils')
          makedepends=('git' 'cmake>=2.6')
@@ -967,7 +976,7 @@
          arch=('i686' 'x86_64')
          url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source"
          license=('GPL2')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('qt4>=4.6' 'libconfig')
          makedepends=('git' 'cmake>=2.6')
          provides=("$_pkgname")
@@ -1009,7 +1018,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('GPL2')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('qt4>=4.6' 'liblxqt>=0.5.r253')
          makedepends=('git' 'cmake>=2.6')
          provides=($_pkgname)
@@ -1050,7 +1059,7 @@
          arch=('i686' 'x86_64')
          url="http://www.lxde.org"
          license=('LGPL')
-         groups=('lxqt')
+         groups=('lxqt-components')
          depends=('liblxqt>=0.5.r253' 'liblightdm-qt4')
          makedepends=('git' 'cmake>=2.6' 'lxqt-powermanagement>=0.5.r68')
          provides=($_pkgname)
@@ -1117,7 +1126,7 @@
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-data')
         makedepends=('git' 'cmake')
         provides=($_pkgname)
         conflicts=($_pkgname)
