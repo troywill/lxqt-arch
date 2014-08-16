@@ -2,8 +2,8 @@
   #+NAME: base-libraries
   | rel | Name               | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]       | [[https://github.com/lxde][Git Repo]]                | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                    | Build Date |
   |-----+--------------------+---------------------+-------------------------+------------------------+------------|
-  | 192 | libqtxdg           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           |            |
-  | 295 | liblxqt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][lxde/liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            |            |
+  | 192 | libqtxdg           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           | 2014-08-15 |
+  | 295 | liblxqt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][lxde/liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            | 2014-08-15 |
   |  54 | liblxqt-mount      | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][lxde/liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      |            |
   | 125 | lxqt-globalkeys    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxde/lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    |            |
   |  82 | lxqt-notificationd | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-notificationd][#lxqt-notificationd]] | [[https://github.com/lxde/lxqt-notificationd][lxde/lxqt-notificationd]] | [[https://aur.archlinux.org/packages/lxqt-notificationd-git/][lxqt-notificationd-git]] |            |
@@ -37,8 +37,8 @@
   |       |             |               |          |     |
   
 * Step by step package build
-1. [ ]  Build the base libraries
-   1. [ ] build [[https://github.com/lxde/libqtxdg][libqtxdg]] 
+1. [-]  Build the base libraries
+   1. [X] build [[https://github.com/lxde/libqtxdg][libqtxdg]] 
       - Library providing freedesktop.org specs implementations for Qt.
       #+BEGIN_SRC sh :tangle libqtxdg/PKGBUILD
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
@@ -56,7 +56,7 @@
         arch=('i686' 'x86_64')
         url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
         license=('GPL2')
-        groups=('lxqt')
+        groups=('lxqt-libs')
         depends=('qt5-base>=5.3')
         makedepends=('git' 'cmake>=2.6' 'qt5-tools>=5.3')
         provides=("$_pkgname")
@@ -92,7 +92,7 @@
             "Qt5LinguistTools", but CMake did not find one.
 	    
 	    ...
-	   - Solution :: install qt5-tools
+	  - Solution :: install qt5-tools
    2. [ ] build [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
       #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
@@ -102,15 +102,19 @@
         _pkgname=liblxqt
         # pkgname=$_pkgname-git
         pkgname=$_pkgname
-        pkgver=0.5
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
         pkgrel=1
         pkgdesc="Common base library for LXQt components."
         arch=('i686' 'x86_64')
         url="http://www.lxde.org"
         license=('GPL2')
-        groups=('lxqt')
-        depends=('qt4>=4.6' 'libqtxdg>=0.5.r150')
-        makedepends=('git' 'cmake>=2.6')
+        groups=('lxqt-libs')
+        # depends=('qt4>=4.6' 'libqtxdg>=0.5.3.r150')
+        depends=('qt5-base>=5.3' 'libqtxdg>=0.5.r192')
+        makedepends=('git' 'cmake>=2.6' "qt5-x11extras" )
         provides=($_pkgname)
         conflicts=($_pkgname)
         source=("git://github.com/lxde/$_pkgname.git")
@@ -126,7 +130,8 @@
             cd "$srcdir/$_gitname"
             mkdir -p build
             cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            # cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
             make
         }
         
