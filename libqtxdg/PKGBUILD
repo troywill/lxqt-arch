@@ -5,15 +5,18 @@
 _pkgname=libqtxdg
 # pkgname=$_pkgname-git
 pkgname=$_pkgname
-pkgver=0.5
-pkgrel=2
+ver_major=0
+ver_minor=5
+ver_patch=3
+pkgver=$ver_major.$ver_minor.$ver_patch
+pkgrel=1
 pkgdesc="Library providing freedesktop.org specs implementations for Qt."
 arch=('i686' 'x86_64')
 url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
 license=('GPL2')
 groups=('lxqt')
-depends=('qt4>=4.6')
-makedepends=('git' 'cmake>=2.6')
+depends=('qt5-base>=5.3')
+makedepends=('git' 'cmake>=2.6' 'qt5-tools>=5.3')
 provides=("$_pkgname")
 conflicts=("$_pkgname" "razor-qt")
 source=("git://github.com/lxde/$_pkgname.git")
@@ -30,7 +33,7 @@ build() {
     cd "$srcdir/$_gitname"
     mkdir -p build
     cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
     make
 }
 

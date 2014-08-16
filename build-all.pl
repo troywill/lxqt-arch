@@ -33,7 +33,7 @@ foreach my $package (@packages) {
     print $logfile "$package_built\n";
     chdir ("..") or die "Unable to chdir ..: $!";
     print "=> END BUILDING PACKAGE $package\n";
-    # my $dummy = <STDIN>;
+    my $dummy = <STDIN>;
 }
 
 __END__
