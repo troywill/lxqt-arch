@@ -27,9 +27,13 @@ foreach my $package (@packages) {
     print "=> $command\n"; system($command);
     move "PKGBUILD.bak", "PKGBUILD" or die "Unable to move: $!";
     chomp(my $package_built = `find *.xz`);
+    system("mplayer ../nudge.ogg");
+    system("sudo pacman --upgrade $package_built");
     copy $package_built, "../packages/";
     print $logfile "$package_built\n";
     chdir ("..") or die "Unable to chdir ..: $!";
+    print "=> END BUILDING PACKAGE $package\n";
+    # my $dummy = <STDIN>;
 }
 
 __END__

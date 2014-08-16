@@ -25,7 +25,6 @@ pkgver() {
 
 build() {
     cd "$srcdir/$_gitname"
-    rm -v ./src/translations/lxqt-config-input_pt_BR.ts
     mkdir -p build
     cd build
     cmake -DCMAKE_INSTALL_PREFIX=/usr  ..
