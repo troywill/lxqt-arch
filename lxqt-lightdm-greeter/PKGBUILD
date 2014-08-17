@@ -13,7 +13,7 @@ arch=('i686' 'x86_64')
 url="http://www.lxde.org"
 license=('LGPL')
 groups=('lxqt-components')
-depends=('liblxqt>=0.5.r253' 'liblightdm-qt4')
+depends=('liblxqt>=0.5.r253' 'liblightdm-qt5')
 makedepends=('git' 'cmake>=2.6' 'lxqt-powermanagement>=0.5.r68')
 provides=($_pkgname)
 conflicts=($_pkgname)

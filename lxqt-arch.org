@@ -24,7 +24,6 @@
   | 86 =>      | lxqt-powermanagement | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-powermanagement][#lxqt-powermanagement]] | [[https://github.com/lxde/lxqt-powermanagement][lxde/lxqt-powermanagement]] | [[https://aur.archlinux.org/packages/lxqt-powermanagement-git/][lxqt-powermanagement-git]] |            |
   | 80 =>      | lximage-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lximage-qt][#lximage-qt]]           | [[https://github.com/lxde/lximage-qt][lxde/lximage-qt]]           | [[https://aur.archlinux.org/packages/lximage-qt-git/][lximage-qt-git]]           |            |
   | 224 =>     | lxqt-config          | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config][#lxqt-config]]          | [[https://github.com/lxde/lxqt-config][lxde/lxqt-config]]          | [[https://aur.archlinux.org/packages/lxqt-config-git/][lxqt-config-git]]          |            |
-  | 54 =>      | lxinput-qt           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxinput-qt][#lxinput-qt]]           | [[https://github.com/lxde/lxinput-qt][lxde/lxinput-qt]]           | [[https://aur.archlinux.org/packages/lxinput-qt-git/][1]] [[https://gist.github.com/Adys/7130117][2]]                      |            |
   | 41 =>      | lxqt-config-randr    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-config-randr][#lxqt-config-randr]]    | [[https://github.com/lxde/lxqt-config-randr][lxde/lxqt-config-randr]]    | [[https://aur.archlinux.org/packages/lxrandr-qt-git/][lxrandr-qt-git]]           |            |
   | 53 =>      | obconf-qt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#obconf-qt][#obconf-qt]]            | [[https://github.com/lxde/obconf-qt][lxde/obconf-qt]]            | [[https://aur.archlinux.org/packages/obconf-qt-git/][obconf-qt-git]]            |            |
   | 6 =>       | compton-conf         | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#compton-conf][#compton-conf]]         | [[https://github.com/lxde/compton-conf][compton-conf]]              | n/a                      |            |
@@ -549,50 +548,6 @@
             make DESTDIR="$pkgdir" install
         }
       #+END_SRC
-   6. [ ] build lxqt-appswitcher
-      #+BEGIN_SRC sh :tangle lxqt-appswitcher/PKGBUILD :padline no
-        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Current Maintainer: Troy Will <troydwill@gmail.com>
-        _pkgname=lxqt-appswitcher
-        # pkgname=$_pkgname-git
-        pkgname=$_pkgname
-        ver_major=0
-        ver_minor=7
-        ver_patch=0
-        pkgver=$ver_major.$ver_minor.$ver_patch
-        pkgrel=1
-        pkgdesc="The LXQt application switcher"
-        arch=('i686' 'x86_64')
-        url="http://www.lxde.org"
-        license=('GPL2')
-        groups=('lxqt-components')
-        depends=('qt4>4.6' 'liblxqt>=0.5.r253' 'lxqt-globalkeys>=0.5.r107' 'libx11')
-        makedepends=('git' 'cmake>=2.6')
-        provides=($_pkgname)
-        conflicts=($_pkgname)
-        source=("git://github.com/lxde/$_pkgname.git")
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
-        
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
-      #+END_SRC
    7. [ ] build lxqt-policykit
       #+BEGIN_SRC sh :tangle lxqt-policykit/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
@@ -858,50 +813,6 @@
              make DESTDIR="$pkgdir" install
          }
        #+END_SRC
-   13. [ ] build lxinput-qt
-       #+BEGIN_SRC sh :tangle lxinput-qt/PKGBUILD :padline no
-         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-
-         _pkgname=lxinput-qt
-         # pkgname=$_pkgname-git
-         pkgname=$_pkgname
-         ver_major=0
-         ver_minor=7
-         ver_patch=0
-         pkgver=$ver_major.$ver_minor.$ver_patch
-         pkgrel=1
-         pkgdesc="LXQt keyboard and mouse configuration."
-         arch=('i686' 'x86_64')
-         url="http://www.lxde.org"
-         license=('GPL2')
-         groups=('lxqt-components')
-         depends=('qt4>=4.6')
-         makedepends=('git' 'cmake>=2.6')
-         provides=($_pkgname)
-         conflicts=($_pkgname)
-         source=("git://github.com/lxde/$_pkgname.git")
-         sha256sums=('SKIP')
-         _gitname=$_pkgname
-
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
-
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
-
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
-       #+END_SRC
    14. [ ] build lxqt-config-randr
        #+BEGIN_SRC sh :tangle lxqt-config-randr/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
@@ -1112,7 +1023,7 @@
          url="http://www.lxde.org"
          license=('LGPL')
          groups=('lxqt-components')
-         depends=('liblxqt>=0.5.r253' 'liblightdm-qt4')
+         depends=('liblxqt>=0.5.r253' 'liblightdm-qt5')
          makedepends=('git' 'cmake>=2.6' 'lxqt-powermanagement>=0.5.r68')
          provides=($_pkgname)
          conflicts=($_pkgname)
@@ -1265,3 +1176,15 @@
     }
   #+END_SRC
 * Diffs
+* FAILURES
+  |     Date | package              | Note                                                                                             |
+  |----------+----------------------+--------------------------------------------------------------------------------------------------|
+  | 14-08-16 | lxqt-appswitcher     | Package discontinued                                                                             |
+  | 14-08-16 | lxqt-config          | conflicting files                                                                                |
+  | 14-08-16 | lxinput-qt           | xqt-config-input_pt_BR.ts:1:2: Encountered incorrectly encoded content.                          |
+  | 14-08-16 | lxqt-lightdm-greeter | xqt-lightdm-greeter/mainwindow.h:31:28: fatal error: QLightDM/Greeter: No such file or directory |
+* DEVELOPER'S LOG
+  |     Date | Action                   |
+  |----------+--------------------------|
+  | 14-08-16 | Removed lxqt-appswitcher |
+  | 14-08-16 | Removed lxinput-qt       |
