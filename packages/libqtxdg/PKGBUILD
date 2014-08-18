@@ -14,6 +14,7 @@ pkgdesc="Library providing freedesktop.org specs implementations for Qt."
 arch=('i686' 'x86_64')
 url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
 license=('GPL2')
+LXQT
 groups=('lxqt-libs')
 depends=('qt5-base>=5.3')
 makedepends=('git' 'cmake>=2.6' 'qt5-tools>=5.3')

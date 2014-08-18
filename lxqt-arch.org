@@ -1,8 +1,38 @@
+* CHUNKS
+  #+NAME: group-lxqt-libs
+  #+BEGIN_SRC sh
+    LXQT
+  #+END_SRC
+  #+NAME: pkgver-git
+  #+BEGIN_SRC sh
+    pkgver() {
+        cd "$srcdir/$_gitname"
+        printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
+    }
+  #+END_SRC
+  #+NAME: build-git
+  #+BEGIN_SRC sh
+    build() {
+        cd "$srcdir/$_gitname"
+        mkdir -p build
+        cd build
+        cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
+        make
+    }
+  #+END_SRC
+  #+NAME: package-git
+  #+BEGIN_SRC sh
+    package() {
+        cd "$srcdir/$_gitname"
+        cd build
+        make DESTDIR="$pkgdir" install
+    }
+  #+END_SRC
 * LXQT Package Tables
   #+NAME: base-libraries
   | rel        | Name               | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source][wiki.lxde.org]]       | [[https://github.com/lxde][Git Repo]]                | [[https://aur.archlinux.org/packages/?O=0&K=lxqt][AUR]]                    | Build Date |
   |------------+--------------------+---------------------+-------------------------+------------------------+------------|
-  | 0.5.3-r192 | libqtxdg           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]]           | 2014-08-15 |
+  | 0.5.3-r192 | libqtxdg           | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]]           | [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]]           | [[https://aur.archlinux.org/packages/libqtxdg-qt5-git/][libqtxdg-qt5-git]]       | 2014-08-15 |
   | 0.7.0-r295 | liblxqt            | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt][#liblxqt]]            | [[https://github.com/lxde/liblxqt][lxde/liblxqt]]            | [[https://aur.archlinux.org/packages/liblxqt-git/][liblxqt-git]]            | 2014-08-15 |
   | 0.7.0.r54  | liblxqt-mount      | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#liblxqt-mount][#liblxqt-mount]]      | [[https://github.com/lxde/liblxqt-mount][lxde/liblxqt-mount]]      | [[https://aur.archlinux.org/packages/liblxqt-mount-git/][liblxqt-mount-git]]      | 2014-08-15 |
   | 125        | lxqt-globalkeys    | [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#lxqt-globalkeys][#lxqt-globalkeys]]    | [[https://github.com/lxde/lxqt-globalkeys][lxde/lxqt-globalkeys]]    | [[https://aur.archlinux.org/packages/lxqt-globalkeys-git/][lxqt-globalkeys-git]]    | 2014-08-15 |
@@ -37,52 +67,40 @@
   
 * Step by step package build
 1. [X]  Build the base libraries
-   1. [X] build [[https://github.com/lxde/libqtxdg][libqtxdg]] 
+   1. [X] build  [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]] ( see also [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]] and [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]] )
       - Library providing freedesktop.org specs implementations for Qt.
-      #+BEGIN_SRC sh :tangle libqtxdg/PKGBUILD
-        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Current Maintainer: Troy Will <troydwill@gmail.com>
+      #+BEGIN_SRC sh :noweb yes :tangle packages/libqtxdg/PKGBUILD
+      # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+      # Current Maintainer: Troy Will <troydwill@gmail.com>
         
-        _pkgname=libqtxdg
-        # pkgname=$_pkgname-git
-        pkgname=$_pkgname
-        ver_major=0
-        ver_minor=5
-        ver_patch=3
-        pkgver=$ver_major.$ver_minor.$ver_patch
-        pkgrel=1
-        pkgdesc="Library providing freedesktop.org specs implementations for Qt."
-        arch=('i686' 'x86_64')
-        url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
-        license=('GPL2')
-        groups=('lxqt-libs')
-        depends=('qt5-base>=5.3')
-        makedepends=('git' 'cmake>=2.6' 'qt5-tools>=5.3')
-        provides=("$_pkgname")
-        conflicts=("$_pkgname" "razor-qt")
-        source=("git://github.com/lxde/$_pkgname.git")
-        # Because the source is not static, skip Git checksum:        
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
+      _pkgname=libqtxdg
+      # pkgname=$_pkgname-git
+      pkgname=$_pkgname
+      ver_major=0
+      ver_minor=5
+      ver_patch=3
+      pkgver=$ver_major.$ver_minor.$ver_patch
+      pkgrel=1
+      pkgdesc="Library providing freedesktop.org specs implementations for Qt."
+      arch=('i686' 'x86_64')
+      url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
+      license=('GPL2')
+      <<group-lxqt-libs>>
+      groups=('lxqt-libs')
+      depends=('qt5-base>=5.3')
+      makedepends=('git' 'cmake>=2.6' 'qt5-tools>=5.3')
+      provides=("$_pkgname")
+      conflicts=("$_pkgname" "razor-qt")
+      source=("git://github.com/lxde/$_pkgname.git")
+      # Because the source is not static, skip Git checksum:        
+      sha256sums=('SKIP')
+      _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+      <<pkgver-git>>
+
+      <<build-git>>
+
+      <<package-git>>
       #+END_SRC
       + Errors encountered
 	- 2014-08-14
@@ -95,49 +113,36 @@
    2. [X] build [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
       #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
-        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
-        # Current Maintainer: Troy Will <troydwill@gmail.com>
+      # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+      # Current Maintainer: Troy Will <troydwill@gmail.com>
         
-        _pkgname=liblxqt
-        # pkgname=$_pkgname-git
-        pkgname=$_pkgname
-        ver_major=0
-        ver_minor=7
-        ver_patch=0
-        pkgver=$ver_major.$ver_minor.$ver_patch
-        pkgrel=1
-        pkgdesc="Common base library for LXQt components."
-        arch=('i686' 'x86_64')
-        url="http://www.lxde.org"
-        license=('GPL2')
-        groups=('lxqt-libs')
-        # depends=('qt4>=4.6' 'libqtxdg>=0.5.3.r150')
-        depends=('qt5-base>=5.3' 'libqtxdg>=0.5.r192')
-        makedepends=('git' 'cmake>=2.6' "qt5-x11extras" )
-        provides=($_pkgname)
-        conflicts=($_pkgname)
-        source=("git://github.com/lxde/$_pkgname.git")
-        sha256sums=('SKIP')
-        _gitname=$_pkgname
+      _pkgname=liblxqt
+      # pkgname=$_pkgname-git
+      pkgname=$_pkgname
+      ver_major=0
+      ver_minor=7
+      ver_patch=0
+      pkgver=$ver_major.$ver_minor.$ver_patch
+      pkgrel=1
+      pkgdesc="Common base library for LXQt components."
+      arch=('i686' 'x86_64')
+      url="http://www.lxde.org"
+      license=('GPL2')
+      groups=('lxqt-libs')
+      # depends=('qt4>=4.6' 'libqtxdg>=0.5.3.r150')
+      depends=('qt5-base>=5.3' 'libqtxdg>=0.5.r192')
+      makedepends=('git' 'cmake>=2.6' "qt5-x11extras" )
+      provides=($_pkgname)
+      conflicts=($_pkgname)
+      source=("git://github.com/lxde/$_pkgname.git")
+      sha256sums=('SKIP')
+      _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+      <<pkgver-git>>
+
+      <<build-git>>
+
+      <<package-git>>
       #+END_SRC
    3. [X] build [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
       #+BEGIN_SRC sh :tangle liblxqt-mount/PKGBUILD :padline no
@@ -164,24 +169,11 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
    4. [X] build [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
       #+BEGIN_SRC sh :tangle lxqt-globalkeys/PKGBUILD :padline no
@@ -210,24 +202,11 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
    5. [X] build lxqt-notificationd
       #+BEGIN_SRC sh :tangle lxqt-notificationd/PKGBUILD :padline no
@@ -256,24 +235,11 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
    6. [X] build libsysstat
       #+BEGIN_SRC sh :tangle libsysstat/PKGBUILD :padline no
@@ -302,24 +268,12 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
 2. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Build_major_components][Build major components]]
    1. [ ] build lxqt-panel
@@ -349,24 +303,11 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
    2. [ ] build pcmanfm-qt
       #+BEGIN_SRC sh :tangle pcmanfm-qt/PKGBUILD :padline no
@@ -394,24 +335,11 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
    3. [ ] build lxqt-session
       #+BEGIN_SRC sh :tangle lxqt-session/PKGBUILD :padline no
@@ -439,24 +367,11 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
    4. [ ] build lxqt-runner
       #+BEGIN_SRC sh :tangle lxqt-runner/PKGBUILD :padline no
@@ -483,25 +398,11 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
    5. [ ] build lxqt-qtplugin
       #+BEGIN_SRC sh :tangle lxqt-qtplugin/PKGBUILD :padline no
@@ -528,27 +429,13 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
-   7. [ ] build lxqt-policykit
+   6. [ ] build lxqt-policykit
       #+BEGIN_SRC sh :tangle lxqt-policykit/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Mainter: Troy Will <troydwill@gmail.com>
@@ -573,26 +460,13 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
-   8. [ ] build lxqt-openssh-askpass
+   7. [ ] build lxqt-openssh-askpass
       #+BEGIN_SRC sh :tangle lxqt-openssh-askpass/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
@@ -617,26 +491,13 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
-   9. [ ] build lxqt-power
+   8. [ ] build lxqt-power
       #+BEGIN_SRC sh :tangle lxqt-power/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
@@ -661,71 +522,44 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
         
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
-        
-        
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
-        
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
       #+END_SRC
-   10. [ ] build lxqt-powermanagement
-       #+BEGIN_SRC sh :tangle lxqt-powermanagement/PKGBUILD :padline no
-         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
+   9. [ ] build lxqt-powermanagement
+      #+BEGIN_SRC sh :tangle lxqt-powermanagement/PKGBUILD :padline no
+        # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
-         _pkgname=lxqt-powermanagement
-         # pkgname=$_pkgname-git
-         pkgname=$_pkgname
-         ver_major=0
-         ver_minor=7
-         ver_patch=0
-         pkgver=$ver_major.$ver_minor.$ver_patch
-         pkgrel=1
-         pkgdesc="LXQt power management daemon"
-         arch=('i686' 'x86_64')
-         url="http://www.lxde.org"
-         license=('GPL2')
-         groups=('lxqt-components')
-         depends=('qt4>=4.6' 'liblxqt>=0.5.r253' 'libxcb')
-         makedepends=('git' 'cmake>=2.6')
-         provides=($_pkgname)
-         conflicts=($_pkgname)
-         source=("git://github.com/lxde/$_pkgname.git")
-         sha256sums=('SKIP')
-         _gitname=$_pkgname
+        _pkgname=lxqt-powermanagement
+        # pkgname=$_pkgname-git
+        pkgname=$_pkgname
+        ver_major=0
+        ver_minor=7
+        ver_patch=0
+        pkgver=$ver_major.$ver_minor.$ver_patch
+        pkgrel=1
+        pkgdesc="LXQt power management daemon"
+        arch=('i686' 'x86_64')
+        url="http://www.lxde.org"
+        license=('GPL2')
+        groups=('lxqt-components')
+        depends=('qt4>=4.6' 'liblxqt>=0.5.r253' 'libxcb')
+        makedepends=('git' 'cmake>=2.6')
+        provides=($_pkgname)
+        conflicts=($_pkgname)
+        source=("git://github.com/lxde/$_pkgname.git")
+        sha256sums=('SKIP')
+        _gitname=$_pkgname
 
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
+       <<pkgver-git>>
 
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
+       <<build-git>>
 
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
-       #+END_SRC
-   11. [ ] build lximage-qt
+       <<package-git>>
+      #+END_SRC
+   10. [ ] build lximage-qt
        #+BEGIN_SRC sh :tangle lximage-qt/PKGBUILD :padline no
          # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
@@ -750,26 +584,13 @@
          sha256sums=('SKIP')
          _gitname=$_pkgname
 
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
+        <<pkgver-git>>
 
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
+        <<build-git>>
 
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
+        <<package-git>>
        #+END_SRC
-   12. [ ] build lxqt-config
+   11. [ ] build lxqt-config
        #+BEGIN_SRC sh :tangle lxqt-config/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
@@ -794,26 +615,13 @@
          sha256sums=('SKIP')
          _gitname=$_pkgname
 
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
+        <<pkgver-git>>
 
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
+        <<build-git>>
 
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
+        <<package-git>>
        #+END_SRC
-   14. [ ] build lxqt-config-randr
+   12. [ ] build lxqt-config-randr
        #+BEGIN_SRC sh :tangle lxqt-config-randr/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
@@ -839,26 +647,13 @@
          sha256sums=('SKIP')
          _gitname=$_pkgname
 
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
+        <<pkgver-git>>
 
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
+        <<build-git>>
 
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
+        <<package-git>>
        #+END_SRC
-   15. [ ] build obconf-qt
+   13. [ ] build obconf-qt
        #+BEGIN_SRC sh :tangle obconf-qt/PKGBUILD :padline no
          _pkgname=obconf-qt
          # pkgname=$_pkgname-git
@@ -884,24 +679,11 @@
          sha256sums=('SKIP')
          _gitname=$_pkgname
 
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
+        <<pkgver-git>>
 
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
+        <<build-git>>
 
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
+        <<package-git>>
        #+END_SRC
        #+BEGIN_SRC sh :tangle obconf-qt/obconf-qt.install :padline no
          post_install() {
@@ -917,7 +699,7 @@
              post_install
          }
        #+END_SRC
-   16. [ ] build compton-conf
+   14. [ ] build compton-conf
        #+BEGIN_SRC sh :tangle compton-conf/PKGBUILD :padline no
          # Maintainer: Troy Will <troydwill@gmail.com>
 
@@ -943,26 +725,13 @@
          sha256sums=('SKIP')
          _gitname=$_pkgname
 
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
+        <<pkgver-git>>
 
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
+        <<build-git>>
 
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
+        <<package-git>>
        #+END_SRC
-   17. [ ] build lxqt-about
+   15. [ ] build lxqt-about
        #+BEGIN_SRC sh :tangle lxqt-about/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
@@ -987,90 +756,11 @@
          sha256sums=('SKIP')
          _gitname=$_pkgname
 
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
+        <<pkgver-git>>
 
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
+        <<build-git>>
 
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
-       #+END_SRC
-   18. [ ] build lxqt-lightdm-greeter
-       #+BEGIN_SRC sh :tangle lxqt-lightdm-greeter/PKGBUILD :padline no
-         # Original maintainer: faerbit <faerbit at gmail dot com>
-
-         _pkgname=lxqt-lightdm-greeter
-         # pkgname=$_pkgname-git
-         pkgname=$_pkgname
-         ver_major=0
-         ver_minor=7
-         ver_patch=0
-         pkgver=$ver_major.$ver_minor.$ver_patch
-         pkgrel=1
-         pkgdesc="A greeter for lightdm"
-         arch=('i686' 'x86_64')
-         url="http://www.lxde.org"
-         license=('LGPL')
-         groups=('lxqt-components')
-         depends=('liblxqt>=0.5.r253' 'liblightdm-qt5')
-         makedepends=('git' 'cmake>=2.6' 'lxqt-powermanagement>=0.5.r68')
-         provides=($_pkgname)
-         conflicts=($_pkgname)
-         source=("git://github.com/lxde/$_pkgname.git"
-                 "lxqt-lightdm-greeter.install")
-         sha1sums=('SKIP'
-                   'cbc5f1ce7e62964fa38b04951bdc3770330dcc68')
-         install=lxqt-lightdm-greeter.install
-         _gitname=$_pkgname
-
-         pkgver() {
-             cd "$srcdir/$_gitname"
-             printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-         }
-
-         build() {
-             cd "$srcdir/$_gitname"
-             mkdir -p build
-             cd build
-             cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-             make
-         }
-
-         package() {
-             cd "$srcdir/$_gitname"
-             cd build
-             make DESTDIR="$pkgdir" install
-         }
-       #+END_SRC
-       #+BEGIN_SRC sh :tangle lxqt-lightdm-greeter/lxqt-lightdm-greeter.install :padline no
-         ## arg 1:  the new package version
-         post_install() {
-             echo
-             echo "==> You have to change /etc/lightdm/lightdm.conf"
-             echo "==> in order to have this greeter be used by lightdm."
-             echo "==> Change the greeter-session under SeatDefaults to the following:"
-             echo "==> greeter-session=lxqt-lightdm-greeter"
-             echo
-         }
-         
-         ## arg 1:  the old package version
-         post_remove() {
-             echo 
-             echo "==> You may want to change your greeter under /etc/lightdm/lightdm.conf"
-             echo "==> (Set the greeter-session to some greeter that is installed on your system)."
-             echo
-         }
+        <<package-git>>
        #+END_SRC
 3. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Install_data_files][Install data files]]
    1. [ ] build lxqt-common
@@ -1097,24 +787,11 @@
         sha256sums=('SKIP')
         _gitname=$_pkgname
 
-        pkgver() {
-            cd "$srcdir/$_gitname"
-            printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-        }
+        <<pkgver-git>>
 
-        build() {
-            cd "$srcdir/$_gitname"
-            mkdir -p build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-            make
-        }
+        <<build-git>>
 
-        package() {
-            cd "$srcdir/$_gitname"
-            cd build
-            make DESTDIR="$pkgdir" install
-        }
+        <<package-git>>
       #+END_SRC
    2. [ ] build lxmenu-data
       #+BEGIN_SRC sh
@@ -1156,6 +833,12 @@
     sha256sums=('SKIP')
     _gitname=$_pkgname
     
+        <<pkgver-git>>
+
+        <<build-git>>
+
+        <<package-git>>
+
     pkgver() {
         cd "$srcdir/$_gitname"
         printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
