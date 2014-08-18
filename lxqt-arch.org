@@ -140,7 +140,7 @@
       <<package-git>>
       #+END_SRC
    3. [X] build [[https://github.com/lxde/liblxqt-mount][liblxqt-mount]] 
-      #+BEGIN_SRC sh :tangle liblxqt-mount/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/liblxqt-mount/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
         _pkgname=liblxqt-mount
@@ -171,7 +171,7 @@
         <<package-git>>
       #+END_SRC
    4. [X] build [[https://github.com/lxde/lxqt-globalkeys][lxqt-globalkeys]] 
-      #+BEGIN_SRC sh :tangle lxqt-globalkeys/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-globalkeys/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Maintainer: Troy Will <troydwill@gmail.com>
         
@@ -204,7 +204,7 @@
         <<package-git>>
       #+END_SRC
    5. [X] build lxqt-notificationd
-      #+BEGIN_SRC sh :tangle lxqt-notificationd/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-notificationd/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
         
@@ -237,7 +237,7 @@
         <<package-git>>
       #+END_SRC
    6. [X] build libsysstat
-      #+BEGIN_SRC sh :tangle libsysstat/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/libsysstat/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
         
@@ -272,7 +272,7 @@
       #+END_SRC
 2. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Build_major_components][Build major components]]
    1. [ ] build lxqt-panel
-      #+BEGIN_SRC sh :tangle lxqt-panel/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-panel/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
         
@@ -305,7 +305,7 @@
         <<package-git>>
       #+END_SRC
    2. [ ] build pcmanfm-qt
-      #+BEGIN_SRC sh :tangle pcmanfm-qt/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/pcmanfm-qt/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer: Troy Will <troydwill@gmail.com>
         

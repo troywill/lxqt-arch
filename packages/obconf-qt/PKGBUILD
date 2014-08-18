@@ -1,42 +1,29 @@
 _pkgname=obconf-qt
-# pkgname=$_pkgname-git
-pkgname=$_pkgname
-ver_major=0
-ver_minor=7
-ver_patch=0
-pkgver=$ver_major.$ver_minor.$ver_patch
-pkgrel=1
-pkgdesc="Qt port of openbox configuration tool ObConf"
-arch=('i686' 'x86_64')
-url="http://www.lxde.org"
-license=('GPL2')
-groups=('lxqt-components')
-depends=('qt4>=4.6' 'openbox')
-# depends=('openbox' 'qt4' 'desktop-file-utils')
-makedepends=('git' 'cmake>=2.6')
-provides=($_pkgname)
-conflicts=($_pkgname)
-install=${pkgname}.install
-source=("git://github.com/lxde/$_pkgname.git")
-# source=("obconf-qt::git://lxde.git.sourceforge.net/gitroot/lxde/obconf-qt")
-sha256sums=('SKIP')
-_gitname=$_pkgname
+ # pkgname=$_pkgname-git
+ pkgname=$_pkgname
+ ver_major=0
+ ver_minor=7
+ ver_patch=0
+ pkgver=$ver_major.$ver_minor.$ver_patch
+ pkgrel=1
+ pkgdesc="Qt port of openbox configuration tool ObConf"
+ arch=('i686' 'x86_64')
+ url="http://www.lxde.org"
+ license=('GPL2')
+ groups=('lxqt-components')
+ depends=('qt4>=4.6' 'openbox')
+ # depends=('openbox' 'qt4' 'desktop-file-utils')
+ makedepends=('git' 'cmake>=2.6')
+ provides=($_pkgname)
+ conflicts=($_pkgname)
+ install=${pkgname}.install
+ source=("git://github.com/lxde/$_pkgname.git")
+ # source=("obconf-qt::git://lxde.git.sourceforge.net/gitroot/lxde/obconf-qt")
+ sha256sums=('SKIP')
+ _gitname=$_pkgname
 
-pkgver() {
-    cd "$srcdir/$_gitname"
-    printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-}
+<<pkgver-git>>
 
-build() {
-    cd "$srcdir/$_gitname"
-    mkdir -p build
-    cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-    make
-}
+<<build-git>>
 
-package() {
-    cd "$srcdir/$_gitname"
-    cd build
-    make DESTDIR="$pkgdir" install
-}
+<<package-git>>
