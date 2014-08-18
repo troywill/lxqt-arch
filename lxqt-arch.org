@@ -1,8 +1,4 @@
 * CHUNKS
-  #+NAME: group-lxqt-libs
-  #+BEGIN_SRC sh
-    LXQT
-  #+END_SRC
   #+NAME: pkgver-git
   #+BEGIN_SRC sh
     pkgver() {
@@ -67,7 +63,7 @@
   
 * Step by step package build
 1. [X]  Build the base libraries
-   1. [X] build  [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]] ( see also [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]] and [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]] )
+   1. [X] build [[https://github.com/lxde/libqtxdg][lxde/libqtxdg]] ( see also [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg][#libqtxdg]] and [[https://aur.archlinux.org/packages/libqtxdg-git/][libqtxdg-git]] )
       - Library providing freedesktop.org specs implementations for Qt.
       #+BEGIN_SRC sh :noweb yes :tangle packages/libqtxdg/PKGBUILD
       # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
@@ -85,7 +81,6 @@
       arch=('i686' 'x86_64')
       url="http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#libqtxdg"
       license=('GPL2')
-      <<group-lxqt-libs>>
       groups=('lxqt-libs')
       depends=('qt5-base>=5.3')
       makedepends=('git' 'cmake>=2.6' 'qt5-tools>=5.3')
@@ -112,7 +107,7 @@
 	  - Solution :: install qt5-tools
    2. [X] build [[https://github.com/lxde/liblxqt][liblxqt]] 
       - Core utility library for all LXDE-Qt components
-      #+BEGIN_SRC sh :tangle liblxqt/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/liblxqt/PKGBUILD :padline no
       # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
       # Current Maintainer: Troy Will <troydwill@gmail.com>
         
@@ -342,7 +337,7 @@
         <<package-git>>
       #+END_SRC
    3. [ ] build lxqt-session
-      #+BEGIN_SRC sh :tangle lxqt-session/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-session/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # wget https://aur.archlinux.org/packages/lx/lxqt-session-git/lxqt-session-git.tar.gz
         
@@ -374,7 +369,7 @@
         <<package-git>>
       #+END_SRC
    4. [ ] build lxqt-runner
-      #+BEGIN_SRC sh :tangle lxqt-runner/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-runner/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
         _pkgname=lxqt-runner
@@ -405,7 +400,7 @@
         <<package-git>>
       #+END_SRC
    5. [ ] build lxqt-qtplugin
-      #+BEGIN_SRC sh :tangle lxqt-qtplugin/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-qtplugin/PKGBUILD :padline no
         # Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
         _pkgname=lxqt-qtplugin
@@ -436,7 +431,7 @@
         <<package-git>>
       #+END_SRC
    6. [ ] build lxqt-policykit
-      #+BEGIN_SRC sh :tangle lxqt-policykit/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-policykit/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Mainter: Troy Will <troydwill@gmail.com>
         _pkgname=lxqt-policykit
@@ -467,7 +462,7 @@
         <<package-git>>
       #+END_SRC
    7. [ ] build lxqt-openssh-askpass
-      #+BEGIN_SRC sh :tangle lxqt-openssh-askpass/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-openssh-askpass/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
         _pkgname=lxqt-openssh-askpass
@@ -498,7 +493,7 @@
         <<package-git>>
       #+END_SRC
    8. [ ] build lxqt-power
-      #+BEGIN_SRC sh :tangle lxqt-power/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-power/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         
         _pkgname=lxqt-power
@@ -529,7 +524,7 @@
         <<package-git>>
       #+END_SRC
    9. [ ] build lxqt-powermanagement
-      #+BEGIN_SRC sh :tangle lxqt-powermanagement/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-powermanagement/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
         _pkgname=lxqt-powermanagement
@@ -560,7 +555,7 @@
        <<package-git>>
       #+END_SRC
    10. [ ] build lximage-qt
-       #+BEGIN_SRC sh :tangle lximage-qt/PKGBUILD :padline no
+       #+BEGIN_SRC sh :tangle packages/lximage-qt/PKGBUILD :padline no
          # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
          _pkgname=lximage-qt
@@ -591,7 +586,7 @@
         <<package-git>>
        #+END_SRC
    11. [ ] build lxqt-config
-       #+BEGIN_SRC sh :tangle lxqt-config/PKGBUILD :padline no
+       #+BEGIN_SRC sh :tangle packages/lxqt-config/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
          _pkgname=lxqt-config
@@ -622,7 +617,7 @@
         <<package-git>>
        #+END_SRC
    12. [ ] build lxqt-config-randr
-       #+BEGIN_SRC sh :tangle lxqt-config-randr/PKGBUILD :padline no
+       #+BEGIN_SRC sh :tangle packages/lxqt-config-randr/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
          # _pkgname=lxrandr-qt
@@ -654,7 +649,7 @@
         <<package-git>>
        #+END_SRC
    13. [ ] build obconf-qt
-       #+BEGIN_SRC sh :tangle obconf-qt/PKGBUILD :padline no
+       #+BEGIN_SRC sh :tangle packages/obconf-qt/PKGBUILD :padline no
          _pkgname=obconf-qt
          # pkgname=$_pkgname-git
          pkgname=$_pkgname
@@ -685,7 +680,7 @@
 
         <<package-git>>
        #+END_SRC
-       #+BEGIN_SRC sh :tangle obconf-qt/obconf-qt.install :padline no
+       #+BEGIN_SRC sh :tangle packages/obconf-qt/obconf-qt.install :padline no
          post_install() {
              update-desktop-database -q
              update-mime-database /usr/share/mime &> /dev/null
@@ -700,7 +695,7 @@
          }
        #+END_SRC
    14. [ ] build compton-conf
-       #+BEGIN_SRC sh :tangle compton-conf/PKGBUILD :padline no
+       #+BEGIN_SRC sh :tangle packages/compton-conf/PKGBUILD :padline no
          # Maintainer: Troy Will <troydwill@gmail.com>
 
          _pkgname=compton-conf
@@ -732,7 +727,7 @@
         <<package-git>>
        #+END_SRC
    15. [ ] build lxqt-about
-       #+BEGIN_SRC sh :tangle lxqt-about/PKGBUILD :padline no
+       #+BEGIN_SRC sh :tangle packages/lxqt-about/PKGBUILD :padline no
          # Original maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 
          _pkgname=lxqt-about
@@ -764,7 +759,7 @@
        #+END_SRC
 3. [ ] [[http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source#Install_data_files][Install data files]]
    1. [ ] build lxqt-common
-      #+BEGIN_SRC sh :tangle lxqt-common/PKGBUILD :padline no
+      #+BEGIN_SRC sh :tangle packages/lxqt-common/PKGBUILD :padline no
         # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
         # Current Maintainer
         _pkgname=lxqt-common
