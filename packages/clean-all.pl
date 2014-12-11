@@ -13,7 +13,7 @@ my @packages = qw( libqtxdg liblxqt liblxqt-mount lxqt-globalkeys lxqt-notificat
                 );
 
 foreach my $package (@packages) {
-    chdir ($package) or die "Unable to chdir: $!";
+    chdir ($package) or die "Unable to chdir to $package: $!";
     chomp(my $pwd = `pwd`);
     print "[in $pwd]\n";
     my $command = "rm -rf ${package}/ ${package}*.xz pkg src";

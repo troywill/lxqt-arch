@@ -2,9 +2,7 @@
 # Original Maintainer: Jerome Leclanche <jerome.leclanche+arch@gmail.com>
 # Current Maintainer: Troy Will <troydwill@gmail.com>
   
-_pkgname=libqtxdg
-# pkgname=$_pkgname-git
-pkgname=$_pkgname
+pkgname=libqtxdg
 ver_major=0
 ver_minor=5
 ver_patch=3
@@ -19,26 +17,22 @@ depends=('qt5-base>=5.3')
 makedepends=('git' 'cmake>=2.6' 'qt5-tools>=5.3')
 provides=("$_pkgname")
 conflicts=("$_pkgname" "razor-qt")
-source=("git://github.com/lxde/$_pkgname.git")
-# Because the source is not static, skip Git checksum:        
-sha256sums=('SKIP')
-_gitname=$_pkgname
+source=("https://github.com/lxde/$pkgname/archive/$pkgver.tar.gz")
+sha256sums=('4ae2afd53ee3f70d20e2153cad96da0c2dc95c3f2ec29c90afc8c28b19c4455c')
   
-pkgver() {
-    cd "$srcdir/$_gitname"
-    printf "%s.r%s.%s.%s" "$pkgver" "$(git rev-list --count HEAD)" "$pkgrel" "$(git rev-parse --short HEAD)"
-}
+  build() {
+      cd "$srcdir/$pkgname-$pkgver"
+      mkdir -p build
+      cd build
+#      cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
+      cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+      make
+  }
 
-build() {
-    cd "$srcdir/$_gitname"
-    mkdir -p build
-    cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=ON ..
-    make
-}
-
-package() {
-    cd "$srcdir/$_gitname"
-    cd build
-    make DESTDIR="$pkgdir" install
-}
+#+NAME: package
+#+BEGIN_SRC sh
+  package() {
+      cd "$srcdir/$pkgname-$pkgver"
+      cd build
+      make DESTDIR="$pkgdir" install
+  }
